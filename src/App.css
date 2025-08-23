@@ -80,7 +80,6 @@ body {
 .home-left {
   position: relative;
   z-index: 2;
-  right: 20%;
   padding: 40px;
   max-width: 70%;
 }
