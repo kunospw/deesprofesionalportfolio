@@ -4,6 +4,7 @@ import Logo from '../assets/deeslogocolor.png'
 const Navbar = () => {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeId, setActiveId] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +14,24 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    // Simple scroll spy using IntersectionObserver
+    const sections = document.querySelectorAll('section[id]')
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id)
+          }
+        })
+      },
+      { root: null, rootMargin: '0px', threshold: 0.5 }
+    )
+
+    sections.forEach((s) => obs.observe(s))
+    return () => obs.disconnect()
   }, [])
 
   return (
@@ -28,22 +47,22 @@ const Navbar = () => {
           scrolled ? 'py-2 px-4' : 'py-4 px-4'
         }`}
       >
-        <a href="#" className="font-tommy text-2xl font-bold pl-2 flex items-center navbar-brand transition-all duration-300 hover:scale-105">
+  <a href="#home" className="font-tommy text-2xl font-bold pl-2 flex items-center navbar-brand transition-all duration-300 hover:scale-105">
           <img src={Logo} alt="" className="w-8 h-8 mr-2 transition-transform duration-300" />
           dyah.rini
         </a>
 
         <nav className="hidden md:flex items-center space-x-8 font-tommy font-medium">
-          <a href="#home" className="nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden">
+          <a href="#home" className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'home' ? 'active' : ''}`}>
             <span className="relative z-10">Home</span>
           </a>
-          <a href="#services" className="nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden">
+          <a href="#services" className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'services' ? 'active' : ''}`}>
             <span className="relative z-10">Services</span>
           </a>
-          <a href="#works" className="nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden">
+          <a href="#works" className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'works' ? 'active' : ''}`}>
             <span className="relative z-10">Works</span>
           </a>
-          <a href="#contact" className="nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden">
+          <a href="#contact" className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'contact' ? 'active' : ''}`}>
             <span className="relative z-10">Contact</span>
           </a>
         </nav>
@@ -77,7 +96,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu with enhanced animations */}
-      <div className={`md:hidden transition-all duration-500 ease-in-out ${
+        <div className={`md:hidden transition-all duration-500 ease-in-out ${
         open 
           ? 'max-h-96 opacity-100 translate-y-0' 
           : 'max-h-0 opacity-0 -translate-y-4'
@@ -92,6 +111,7 @@ const Navbar = () => {
             <a
               key={item.href}
               href={item.href}
+              onClick={() => setOpen(false)}
               className={`nav-link transition-all duration-300 hover:translate-x-2 ${
                 open ? 'animate-slide-in' : ''
               }`}

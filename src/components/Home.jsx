@@ -64,7 +64,7 @@ const Home = () => {
   ]
 
   return (
-    <section className="home">
+    <section className="home" id='home'>
       <div className="home-inner container">
         {/* Large decorative text background */}
         <div className="design-text">DEV/{'>'}</div>

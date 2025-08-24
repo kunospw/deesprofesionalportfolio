@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { useTexture, PresentationControls, ContactShadows } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
-import { useMemo, useState, useRef } from "react";
+import { useMemo, useState, useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 
 function RoundedCard({ w = 4.5, h = 2.7, r = 0.1 }) {
@@ -94,11 +94,79 @@ function RoundedCard({ w = 4.5, h = 2.7, r = 0.1 }) {
 }
 
 export default function Card3D() {
+    const [parallaxY, setParallaxY] = useState(0);
+    const [isSticky, setIsSticky] = useState(false);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        let ticking = false;
+
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    if (containerRef.current) {
+                        const scrollY = window.scrollY;
+                        const windowHeight = window.innerHeight;
+                        const servicesSection = document.getElementById('services');
+
+                        if (servicesSection) {
+                            const servicesTop = servicesSection.offsetTop;
+                            const containerRect = containerRef.current.getBoundingClientRect();
+                            const containerTop = containerRect.top + scrollY;
+                            const containerHeight = containerRect.height;
+
+                            // Calculate when card should start following scroll
+                            const startFollowPoint = containerTop - windowHeight * 0.2;
+                            const stopFollowPoint = servicesTop - containerHeight - 50; // 50px buffer
+
+                            if (scrollY < startFollowPoint) {
+                                // Card hasn't reached trigger point yet
+                                setParallaxY(0);
+                                setIsSticky(false);
+                            } else if (scrollY >= startFollowPoint && scrollY < stopFollowPoint) {
+                                // Card is following scroll
+                                const parallaxSpeed = 0.4; // Slightly increased for more noticeable effect
+                                const adjustedScroll = scrollY - startFollowPoint;
+                                setParallaxY(adjustedScroll * parallaxSpeed);
+                                setIsSticky(true);
+                            } else {
+                                // Card has reached services section - stop at max position
+                                const maxParallax = (stopFollowPoint - startFollowPoint) * 0.4;
+                                setParallaxY(maxParallax);
+                                setIsSticky(true);
+                            }
+                        }
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        // Use passive listener for better performance
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Call once to set initial position
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <div style={{ width: "100%", height: 440, background: 'transparent' }}>
+        <div
+            ref={containerRef}
+            style={{
+                width: "100%",
+                height: "100%",
+                minHeight: 300,
+                maxHeight: 440,
+                background: 'transparent',
+                transform: `translateY(${parallaxY}px)`,
+                transition: isSticky ? 'transform 0.05s ease-out' : 'transform 0.3s ease-out',
+                willChange: 'transform'
+            }}
+        >
             <Canvas
                 gl={{ alpha: true, antialias: true }}
-                style={{ background: 'transparent' }}
+                style={{ background: 'transparent', width: '100%', height: '100%' }}
                 camera={{ position: [0, 0, 5], fov: 45 }}
             >
                 {/* brighter ambient + hemisphere light to lift shadows */}

@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+/* Smooth scrolling for anchor links */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Account for fixed navbar: add scroll-padding so sections don't hide under navbar */
+:root {
+	--navbar-height: 64px; /* adjust if your navbar is taller */
+}
+
+body {
+	scroll-padding-top: var(--navbar-height);
+}
+
+.nav-link.active {
+	/* subtle underline for active nav item */
+	position: relative;
+}
+
+.nav-link.active::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -6px;
+	height: 2px;
+	background: currentColor;
+	opacity: 0.9;
+	transform-origin: left center;
+}
