@@ -30,7 +30,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <div className="contact-label">Phone</div>
-                <div className="contact-value">+62 813 1944 9299</div>
+                <div className="contact-value">+62 812 9859 0798</div>
               </div>
             </motion.div>
 
