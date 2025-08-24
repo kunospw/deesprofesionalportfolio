@@ -5,7 +5,7 @@ import { useTexture, PresentationControls, ContactShadows } from "@react-three/d
 import { a, useSpring } from "@react-spring/three";
 import { useMemo, useState } from "react";
 
-function RoundedCard({ w = 3.5, h = 2.0, r = 0.1 }) {
+function RoundedCard({ w = 4.5, h = 2.7, r = 0.1 }) {
     const [front, back] = useTexture(["/card-front.png", "/card-back.png"]);
 
     // Ensure textures use the expected orientation/encoding for display on custom UVs

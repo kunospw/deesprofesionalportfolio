@@ -1,34 +1,56 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Logo from '../assets/deeslogocolor.png'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY
+      setScrolled(offset > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <header
       id="navbar"
-      style={{ opacity: 1 }}
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-in-out"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
+        scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      }`}
     >
       <div
         id="navbar-container"
-        className="container mx-auto flex justify-between items-center p-4 transition-all duration-700 ease-in-out"
+        className={`container mx-auto flex justify-between items-center transition-all duration-500 ease-in-out ${
+          scrolled ? 'py-2 px-4' : 'py-4 px-4'
+        }`}
       >
-        <a href="#" className="font-tommy text-2xl font-bold pl-2 flex items-center navbar-brand">
-          <img src={Logo} alt="" className="w-8 h-8 mr-2" />
+        <a href="#" className="font-tommy text-2xl font-bold pl-2 flex items-center navbar-brand transition-all duration-300 hover:scale-105">
+          <img src={Logo} alt="" className="w-8 h-8 mr-2 transition-transform duration-300" />
           dyah.rini
         </a>
 
         <nav className="hidden md:flex items-center space-x-8 font-tommy font-medium">
-          <a href="#home" className="nav-link transition-colors">Home</a>
-          <a href="#services" className="nav-link transition-colors">Services</a>
-          <a href="#works" className="nav-link transition-colors">Works</a>
-          <a href="#contact" className="nav-link transition-colors">Contact</a>
+          <a href="#home" className="nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden">
+            <span className="relative z-10">Home</span>
+          </a>
+          <a href="#services" className="nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden">
+            <span className="relative z-10">Services</span>
+          </a>
+          <a href="#works" className="nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden">
+            <span className="relative z-10">Works</span>
+          </a>
+          <a href="#contact" className="nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden">
+            <span className="relative z-10">Contact</span>
+          </a>
         </nav>
 
         <a
           href="https://www.linkedin.com/in/fikri-aidhil-setiansyah/"
-          className="hidden md:inline-block px-5 py-2 font-tommy linkedin-button"
+          className="hidden md:inline-block px-5 py-2 font-tommy linkedin-button transition-all duration-300 hover:scale-105 hover:shadow-lg"
         >
           LinkedIn &rarr;
         </a>
@@ -36,7 +58,9 @@ const Navbar = () => {
         <button
           id="menu-btn"
           onClick={() => setOpen(v => !v)}
-          className="md:hidden relative z-10"
+          className={`md:hidden relative z-10 transition-all duration-300 ${
+            open ? 'rotate-180' : 'rotate-0'
+          } hover:scale-110`}
           aria-label="Toggle menu"
         >
           <svg
@@ -45,21 +69,46 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-8 h-8"
+            className="w-8 h-8 transition-transform duration-300"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
       </div>
 
-      {/* Mobile menu - rendered when open */}
-      <div className={`md:hidden bg-transparent transition-all duration-300 ${open ? 'block' : 'hidden'}`}>
-        <div className="container mx-auto p-4 flex flex-col space-y-3 items-start">
-          <a href="#home" className="text-orange-400">Home</a>
-          <a href="#services" className="text-orange-400">Services</a>
-          <a href="#works" className="text-orange-400">Works</a>
-          <a href="#contact" className="text-orange-400">Contact</a>
-          <a href="https://www.linkedin.com/in/fikri-aidhil-setiansyah/" className="px-4 py-2 border-2 border-orange-400 text-orange-400 rounded-full">LinkedIn →</a>
+      {/* Mobile menu with enhanced animations */}
+      <div className={`md:hidden transition-all duration-500 ease-in-out ${
+        open 
+          ? 'max-h-96 opacity-100 translate-y-0' 
+          : 'max-h-0 opacity-0 -translate-y-4'
+      } overflow-hidden bg-white/95 backdrop-blur-md`}>
+        <div className="container mx-auto p-6 flex flex-col space-y-4 items-start">
+          {[
+            { href: '#home', label: 'Home' },
+            { href: '#services', label: 'Services' },
+            { href: '#works', label: 'Works' },
+            { href: '#contact', label: 'Contact' }
+          ].map((item, index) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`nav-link transition-all duration-300 hover:translate-x-2 ${
+                open ? 'animate-slide-in' : ''
+              }`}
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="https://www.linkedin.com/in/fikri-aidhil-setiansyah/"
+            className={`px-6 py-3 linkedin-button transition-all duration-300 hover:scale-105 hover:shadow-lg mt-2 ${
+              open ? 'animate-slide-in' : ''
+            }`}
+            style={{ animationDelay: '400ms' }}
+          >
+            LinkedIn →
+          </a>
         </div>
       </div>
     </header>

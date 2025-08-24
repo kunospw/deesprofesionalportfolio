@@ -47,6 +47,23 @@ body {
 	transform: scale(1.06);
 }
 
+/* Navbar animations */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.6s ease-out forwards;
+  opacity: 0;
+}
+
 /* Home section layout */
 .home {
   min-height: calc(100vh - 80px);

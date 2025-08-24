@@ -67,7 +67,7 @@ const Home = () => {
     <section className="home">
       <div className="home-inner container">
         {/* Large decorative text background */}
-        <div className="design-text">DESIGN</div>
+        <div className="design-text">DEV/{'>'}</div>
         
         <motion.div 
           className="home-left"
@@ -99,7 +99,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            Crafting digital experiences with code and creativity
+            Blending creativity and logic like a witchcraft spell
           </motion.p>
         </motion.div>
         
