@@ -196,6 +196,7 @@ const Services = () => {
               className="services-cta-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => window.dispatchEvent(new Event('openContactModal'))}
             >
               Start a Project
               <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">

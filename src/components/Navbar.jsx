@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { smoothScrollTo } from './ScrollAnimation'
 import Logo from '../assets/deeslogocolor.png'
+import ContactModal from './ContactModal'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
@@ -43,7 +44,17 @@ const Navbar = () => {
     setOpen(false) // Close mobile menu
   }
 
+  const [openModal, setOpenModal] = useState(false)
+
+  useEffect(() => {
+    // Listen for a global event to open the contact modal (dispatched by other components)
+    const handleOpen = () => setOpenModal(true)
+    window.addEventListener('openContactModal', handleOpen)
+    return () => window.removeEventListener('openContactModal', handleOpen)
+  }, [])
+
   return (
+    <>
     <motion.header
       id="navbar"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
@@ -97,12 +108,13 @@ const Navbar = () => {
           >
             <span className="relative z-10">Contact</span>
           </a>
-        </nav>        <a
-          href="https://www.linkedin.com/in/fikri-aidhil-setiansyah/"
+        </nav>
+        <button
+          onClick={() => setOpenModal(true)}
           className="hidden md:inline-block px-5 py-2 font-tommy linkedin-button transition-all duration-300 hover:scale-105 hover:shadow-lg"
         >
-          LinkedIn &rarr;
-        </a>
+          Get in touch
+        </button>
 
         <button
           id="menu-btn"
@@ -150,18 +162,20 @@ const Navbar = () => {
               {item.label}
             </a>
           ))}
-          <a
-            href="https://www.linkedin.com/in/fikri-aidhil-setiansyah/"
+          <button
+            onClick={() => setOpenModal(true)}
             className={`px-6 py-3 linkedin-button transition-all duration-300 hover:scale-105 hover:shadow-lg mt-2 ${
               open ? 'animate-slide-in' : ''
             }`}
             style={{ animationDelay: '400ms' }}
           >
-            LinkedIn →
-          </a>
+            Get in touch
+          </button>
         </div>
       </div>
     </motion.header>
+    <ContactModal open={openModal} onClose={() => setOpenModal(false)} />
+    </>
   )
 }
 

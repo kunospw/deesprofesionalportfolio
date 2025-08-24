@@ -1,10 +1,13 @@
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Services from './components/Services'
+import Works from './components/Works'
 import CustomScrollbar from './components/CustomScrollbar'
 import ScrollAnimation from './components/ScrollAnimation'
 import ScrollProgress from './components/ScrollProgress'
 import './App.css'
+import ContactSection from './components/ContactSection'
+import FloatingActions from './components/FloatingActions'
 
 function App() {
   return (
@@ -19,20 +22,9 @@ function App() {
       <main style={{ padding: 0 }}>
         <Home />
         <Services />
-        {/* Placeholder sections so navbar anchors have targets */}
-        <section id="works" style={{ padding: '8rem 1rem', minHeight: '60vh' }}>
-          <div className="container mx-auto">
-            <h2>Works</h2>
-            <p>Projects and portfolio items will go here.</p>
-          </div>
-        </section>
-
-        <section id="contact" style={{ padding: '8rem 1rem', minHeight: '40vh' }}>
-          <div className="container mx-auto">
-            <h2>Contact</h2>
-            <p>Contact form or details will go here.</p>
-          </div>
-        </section>
+  <Works />
+  <ContactSection />
+  <FloatingActions />
       </main>
     </ScrollAnimation>
   )
