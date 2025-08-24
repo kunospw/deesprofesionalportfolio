@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Services from './components/Services';
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Services from './components/Services'
+import CustomScrollbar from './components/CustomScrollbar'
+import ScrollAnimation from './components/ScrollAnimation'
+import ScrollProgress from './components/ScrollProgress'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--background)', color: 'var(--text)' }}>
+    <ScrollAnimation style={{ minHeight: '100vh', background: 'var(--background)', color: 'var(--text)' }}>
+      <ScrollProgress />
+      <CustomScrollbar />
       <Navbar />
       {/* persistent rotated brand */}
       <div className="fixed rotate-90 z-30 bottom-20 left-10 font-tommy font-light hidden md:block" style={{ color: 'var(--primary)' }}>
@@ -34,7 +34,7 @@ function App() {
           </div>
         </section>
       </main>
-    </div>
+    </ScrollAnimation>
   )
 }
 

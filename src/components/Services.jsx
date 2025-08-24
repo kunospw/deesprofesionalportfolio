@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { ScrollReveal } from './ScrollAnimation'
 
 const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
@@ -92,13 +93,8 @@ const Services = () => {
     }
   }
 
-  // refs + scroll tracking for parallax/stop (sticky) behavior
-  const servicesRef = useRef(null)
-  const { scrollYProgress } = useScroll({ target: servicesRef, offset: ["start end", "end start"] })
-  const y = useTransform(scrollYProgress, [0, 1], [30, -30])
-
   return (
-    <section id="services" className="services-section" ref={servicesRef}>
+    <section id="services" className="services-section">
       <div className="services-background">
         <div className="services-shape services-shape-1"></div>
         <div className="services-shape services-shape-2"></div>
@@ -107,13 +103,7 @@ const Services = () => {
 
       <div className="container mx-auto px-4 py-20">
         {/* Section Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        <ScrollReveal className="text-center mb-16">
           <motion.span 
             className="services-badge"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -141,7 +131,7 @@ const Services = () => {
           >
             Transforming ideas into digital reality with creativity
           </motion.p>
-        </motion.div>
+        </ScrollReveal>
 
         {/* Services Grid */}
         <motion.div 
@@ -159,12 +149,7 @@ const Services = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* make the inner card a motion div so we can attach the y parallax transform
-                  and apply a sticky stop when the tracked card reaches the viewport */}
-              <motion.div
-                className={`service-card ${hoveredIndex === index ? 'hovered' : ''}`}
-                style={index === 0 ? { y, position: 'sticky', top: '20vh' } : {}}
-              >
+              <div className={`service-card ${hoveredIndex === index ? 'hovered' : ''}`}>
                 {/* Card glow effect */}
                 <div className={`service-card-glow bg-gradient-to-r ${service.gradient}`}></div>
                 
@@ -191,32 +176,34 @@ const Services = () => {
                     </svg>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Call to Action */}
-        <motion.div 
-          className="services-cta"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h3>Ready to bring your vision to life?</h3>
-          <p>Let's collaborate and create something extraordinary together</p>
-          <motion.button 
-            className="services-cta-button"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
+        <ScrollReveal delay={0.2}>
+          <motion.div 
+            className="services-cta"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Start a Project
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
-            </svg>
-          </motion.button>
-        </motion.div>
+            <h3>Ready to bring your vision to life?</h3>
+            <p>Let's collaborate and create something extraordinary together</p>
+            <motion.button 
+              className="services-cta-button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Start a Project
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+              </svg>
+            </motion.button>
+          </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   )

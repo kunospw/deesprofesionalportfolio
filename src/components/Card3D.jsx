@@ -2,7 +2,7 @@
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { useTexture, PresentationControls, ContactShadows } from "@react-three/drei";
-import { a, useSpring } from "@react-spring/three";
+import { a as Animated, useSpring } from "@react-spring/three";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 
@@ -74,7 +74,7 @@ function RoundedCard({ w = 4.5, h = 2.7, r = 0.1 }) {
     const backGeometry = geometry;
 
     return (
-        <a.group
+        <Animated.group
             ref={groupRef}
             rotation-y={spring.rotationY}
             onClick={() => setFlipped(v => !v)}
@@ -89,7 +89,7 @@ function RoundedCard({ w = 4.5, h = 2.7, r = 0.1 }) {
             <mesh geometry={backGeometry} rotation-y={Math.PI} position-z={-0.001}>
                 <meshPhysicalMaterial map={back} clearcoat={0.6} roughness={0.35} metalness={0.05} />
             </mesh>
-        </a.group>
+        </Animated.group>
     );
 }
 
@@ -156,8 +156,6 @@ export default function Card3D() {
             style={{
                 width: "100%",
                 height: "100%",
-                minHeight: 300,
-                maxHeight: 440,
                 background: 'transparent',
                 transform: `translateY(${parallaxY}px)`,
                 transition: isSticky ? 'transform 0.05s ease-out' : 'transform 0.3s ease-out',

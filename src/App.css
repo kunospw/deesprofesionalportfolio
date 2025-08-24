@@ -295,6 +295,7 @@ body {
     position: relative;
     top: auto;
     right: auto;
+    left: auto;
     transform: scale(0.7);
     opacity: 0.9;
     width: 250px;
@@ -787,4 +788,4 @@ body {
   .services-shape {
     opacity: 0.03;
   }
-}```
+}

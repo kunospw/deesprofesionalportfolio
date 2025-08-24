@@ -1,32 +1,92 @@
 @import "tailwindcss";
 
-/* Smooth scrolling for anchor links */
+/* Hide default scrollbar but keep functionality */
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+body {
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Smooth page transitions */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Disable scroll behavior for motion components to avoid conflicts */
+[data-framer-motion] {
+  scroll-behavior: auto;
+}
+
+/* Custom fixed scrollbar */
+.custom-scrollbar {
+  position: fixed;
+  top: 0;
+  right: 8px;
+  width: 4px;
+  height: 100vh;
+  background: rgba(55, 56, 123, 0.1);
+  border-radius: 2px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar:hover {
+  width: 6px;
+  background: rgba(55, 56, 123, 0.15);
+}
+
+.custom-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  min-height: 20px;
+}
+
+.custom-scrollbar:hover .custom-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
 }
 
 /* Account for fixed navbar: add scroll-padding so sections don't hide under navbar */
 :root {
-	--navbar-height: 64px; /* adjust if your navbar is taller */
+  --navbar-height: 64px; /* adjust if your navbar is taller */
 }
 
 body {
-	scroll-padding-top: var(--navbar-height);
+  scroll-padding-top: var(--navbar-height);
 }
 
 .nav-link.active {
-	/* subtle underline for active nav item */
-	position: relative;
+  /* subtle underline for active nav item */
+  position: relative;
 }
 
 .nav-link.active::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: -6px;
-	height: 2px;
-	background: currentColor;
-	opacity: 0.9;
-	transform-origin: left center;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.9;
+  transform-origin: left center;
 }

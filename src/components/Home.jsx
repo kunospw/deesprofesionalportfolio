@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { ScrollReveal, ParallaxContainer } from './ScrollAnimation'
 import Card3D from './Card3D'
 
 const Typewriter = ({ words = [], typingSpeed = 100, pause = 1400 }) => {
@@ -63,11 +64,19 @@ const Home = () => {
     'Informatics student'
   ]
 
+  const { scrollY } = useScroll()
+  const backgroundY = useTransform(scrollY, [0, 500], [0, -150])
+
   return (
     <section className="home" id='home'>
-      <div className="home-inner container">
+      <motion.div 
+        className="home-inner container"
+        style={{ y: backgroundY }}
+      >
         {/* Large decorative text background */}
-        <div className="design-text">DEV/{'>'}</div>
+        <ParallaxContainer speed={0.3}>
+          <div className="design-text">DEV/{'>'}</div>
+        </ParallaxContainer>
         
         <motion.div 
           className="home-left"
@@ -118,7 +127,7 @@ const Home = () => {
         >
           <Card3D />
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   )
 }

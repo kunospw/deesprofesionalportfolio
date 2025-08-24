@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { smoothScrollTo } from './ScrollAnimation'
 import Logo from '../assets/deeslogocolor.png'
 
 const Navbar = () => {
@@ -34,12 +36,22 @@ const Navbar = () => {
     return () => obs.disconnect()
   }, [])
 
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault()
+    const navbarHeight = 64 // Adjust based on your navbar height
+    smoothScrollTo(targetId, navbarHeight)
+    setOpen(false) // Close mobile menu
+  }
+
   return (
-    <header
+    <motion.header
       id="navbar"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
         scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div
         id="navbar-container"
@@ -47,27 +59,45 @@ const Navbar = () => {
           scrolled ? 'py-2 px-4' : 'py-4 px-4'
         }`}
       >
-  <a href="#home" className="font-tommy text-2xl font-bold pl-2 flex items-center navbar-brand transition-all duration-300 hover:scale-105">
+        <a 
+          href="#home" 
+          onClick={(e) => handleSmoothScroll(e, 'home')}
+          className="font-tommy text-2xl font-bold pl-2 flex items-center navbar-brand transition-all duration-300 hover:scale-105"
+        >
           <img src={Logo} alt="" className="w-8 h-8 mr-2 transition-transform duration-300" />
           dyah.rini
         </a>
 
         <nav className="hidden md:flex items-center space-x-8 font-tommy font-medium">
-          <a href="#home" className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'home' ? 'active' : ''}`}>
+          <a 
+            href="#home" 
+            onClick={(e) => handleSmoothScroll(e, 'home')}
+            className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'home' ? 'active' : ''}`}
+          >
             <span className="relative z-10">Home</span>
           </a>
-          <a href="#services" className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'services' ? 'active' : ''}`}>
+          <a 
+            href="#services" 
+            onClick={(e) => handleSmoothScroll(e, 'services')}
+            className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'services' ? 'active' : ''}`}
+          >
             <span className="relative z-10">Services</span>
           </a>
-          <a href="#works" className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'works' ? 'active' : ''}`}>
+          <a 
+            href="#works" 
+            onClick={(e) => handleSmoothScroll(e, 'works')}
+            className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'works' ? 'active' : ''}`}
+          >
             <span className="relative z-10">Works</span>
           </a>
-          <a href="#contact" className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'contact' ? 'active' : ''}`}>
+          <a 
+            href="#contact" 
+            onClick={(e) => handleSmoothScroll(e, 'contact')}
+            className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'contact' ? 'active' : ''}`}
+          >
             <span className="relative z-10">Contact</span>
           </a>
-        </nav>
-
-        <a
+        </nav>        <a
           href="https://www.linkedin.com/in/fikri-aidhil-setiansyah/"
           className="hidden md:inline-block px-5 py-2 font-tommy linkedin-button transition-all duration-300 hover:scale-105 hover:shadow-lg"
         >
@@ -103,15 +133,15 @@ const Navbar = () => {
       } overflow-hidden bg-white/95 backdrop-blur-md`}>
         <div className="container mx-auto p-6 flex flex-col space-y-4 items-start">
           {[
-            { href: '#home', label: 'Home' },
-            { href: '#services', label: 'Services' },
-            { href: '#works', label: 'Works' },
-            { href: '#contact', label: 'Contact' }
+            { href: '#home', label: 'Home', id: 'home' },
+            { href: '#services', label: 'Services', id: 'services' },
+            { href: '#works', label: 'Works', id: 'works' },
+            { href: '#contact', label: 'Contact', id: 'contact' }
           ].map((item, index) => (
             <a
               key={item.href}
               href={item.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => handleSmoothScroll(e, item.id)}
               className={`nav-link transition-all duration-300 hover:translate-x-2 ${
                 open ? 'animate-slide-in' : ''
               }`}
@@ -131,7 +161,7 @@ const Navbar = () => {
           </a>
         </div>
       </div>
-    </header>
+    </motion.header>
   )
 }
 
