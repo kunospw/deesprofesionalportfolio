@@ -59,7 +59,7 @@ const Home = () => {
     'Dyah Puspo Rini',
     'Dee',
     'kunospw',
-    'Web and Game developer',
+    'Web & Game developer',
     'Informatics student'
   ]
 
