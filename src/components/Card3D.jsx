@@ -3,10 +3,12 @@ import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { useTexture, PresentationControls, ContactShadows } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 
 function RoundedCard({ w = 4.5, h = 2.7, r = 0.1 }) {
     const [front, back] = useTexture(["/card-front.png", "/card-back.png"]);
+    const groupRef = useRef();
 
     // Ensure textures use the expected orientation/encoding for display on custom UVs
     // keep flipY true so images are uploaded with the usual WebGL orientation
@@ -31,8 +33,17 @@ function RoundedCard({ w = 4.5, h = 2.7, r = 0.1 }) {
 
     const spring = useSpring({
         rotationY: flipped ? Math.PI : 0,
-        lift: hovered ? 0.06 : 0,
+        lift: hovered ? 0.1 : 0,
         config: { tension: 280, friction: 22 }
+    });
+
+    // Add floating animation using useFrame for smooth animation
+    useFrame((state) => {
+        if (groupRef.current) {
+            // Create a gentle floating motion similar to the background shapes
+            const floatY = Math.sin(state.clock.elapsedTime * 0.8) * 0.1;
+            groupRef.current.position.y = spring.lift.get() + floatY;
+        }
     });
 
     // Create geometry once and generate proper UVs based on its bounding box so the
@@ -64,8 +75,8 @@ function RoundedCard({ w = 4.5, h = 2.7, r = 0.1 }) {
 
     return (
         <a.group
+            ref={groupRef}
             rotation-y={spring.rotationY}
-            position-y={spring.lift}
             onClick={() => setFlipped(v => !v)}
             onPointerOver={() => setHovered(true)}
             onPointerOut={() => setHovered(false)}
