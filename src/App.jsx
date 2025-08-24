@@ -11,10 +11,10 @@ function App() {
   return (
     <div style={{ minHeight: '100vh', height: '100vh', background: 'var(--background)', color: 'var(--text)' }}>
       <Navbar />
-      {/* persistent rotated brand
+      {/* persistent rotated brand */}
       <div className="fixed rotate-90 z-30 bottom-20 left-10 font-tommy font-light hidden md:block" style={{ color: 'var(--primary)' }}>
         <h1>dyah.rini</h1>
-      </div> */}
+      </div>
       <main style={{ padding: 0, height: '100vh', width: '100vw' }}>
         <Home />
       </main>
