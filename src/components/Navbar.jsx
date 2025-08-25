@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { smoothScrollTo } from './ScrollAnimation'
 import Logo from '../assets/deeslogocolor.png'
 import ContactModal from './ContactModal'
+import ThemeToggle from './ThemeToggle'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
@@ -57,8 +58,8 @@ const Navbar = () => {
     <>
     <motion.header
       id="navbar"
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out navbar-header ${
+        scrolled ? 'navbar-scrolled bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -102,6 +103,20 @@ const Navbar = () => {
             <span className="relative z-10">Works</span>
           </a>
           <a 
+            href="#experience" 
+            onClick={(e) => handleSmoothScroll(e, 'experience')}
+            className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'experience' ? 'active' : ''}`}
+          >
+            <span className="relative z-10">Experience</span>
+          </a>
+          <a 
+            href="#certificates" 
+            onClick={(e) => handleSmoothScroll(e, 'certificates')}
+            className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'certificates' ? 'active' : ''}`}
+          >
+            <span className="relative z-10">Certificates</span>
+          </a>
+          <a 
             href="#contact" 
             onClick={(e) => handleSmoothScroll(e, 'contact')}
             className={`nav-link transition-all duration-300 hover:scale-110 relative overflow-hidden ${activeId === 'contact' ? 'active' : ''}`}
@@ -109,32 +124,39 @@ const Navbar = () => {
             <span className="relative z-10">Contact</span>
           </a>
         </nav>
-        <button
-          onClick={() => setOpenModal(true)}
-          className="hidden md:inline-block px-5 py-2 font-tommy linkedin-button transition-all duration-300 hover:scale-105 hover:shadow-lg"
-        >
-          Get in touch
-        </button>
-
-        <button
-          id="menu-btn"
-          onClick={() => setOpen(v => !v)}
-          className={`md:hidden relative z-10 transition-all duration-300 ${
-            open ? 'rotate-180' : 'rotate-0'
-          } hover:scale-110`}
-          aria-label="Toggle menu"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-8 h-8 transition-transform duration-300"
+        
+        <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpenModal(true)}
+            className="px-5 py-2 font-tommy linkedin-button transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
+            Get in touch
+          </button>
+        </div>
+
+        <div className="md:hidden flex items-center gap-3">
+          <ThemeToggle />
+          <button
+            id="menu-btn"
+            onClick={() => setOpen(v => !v)}
+            className={`relative z-10 transition-all duration-300 ${
+              open ? 'rotate-180' : 'rotate-0'
+            } hover:scale-110`}
+            aria-label="Toggle menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-8 h-8 transition-transform duration-300"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu with enhanced animations */}
@@ -148,6 +170,8 @@ const Navbar = () => {
             { href: '#home', label: 'Home', id: 'home' },
             { href: '#services', label: 'Services', id: 'services' },
             { href: '#works', label: 'Works', id: 'works' },
+            { href: '#experience', label: 'Experience', id: 'experience' },
+            { href: '#certificates', label: 'Certificates', id: 'certificates' },
             { href: '#contact', label: 'Contact', id: 'contact' }
           ].map((item, index) => (
             <a

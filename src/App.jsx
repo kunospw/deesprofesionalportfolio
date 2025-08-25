@@ -8,6 +8,9 @@ import ScrollProgress from './components/ScrollProgress'
 import './App.css'
 import ContactSection from './components/ContactSection'
 import FloatingActions from './components/FloatingActions'
+import Experience from './components/Experience'
+import Certificates from './components/Certificates'
+import { experiences, achievements } from './data/resume'
 
 function App() {
   return (
@@ -23,6 +26,8 @@ function App() {
         <Home />
         <Services />
   <Works />
+  <Experience experiences={experiences} />
+  <Certificates achievements={achievements} />
   <ContactSection />
   <FloatingActions />
       </main>
