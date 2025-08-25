@@ -1369,15 +1369,17 @@ body {
 .typing-indicator {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
+  padding: 4px 0;
 }
 
 .typing-indicator .dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: #666;
   animation: typingDots 1.4s infinite ease-in-out;
+  will-change: transform, opacity;
 }
 
 .typing-indicator .dot:nth-child(1) {
@@ -1395,10 +1397,10 @@ body {
 @keyframes typingDots {
   0%, 60%, 100% {
     transform: translateY(0);
-    opacity: 0.4;
+    opacity: 0.3;
   }
   30% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     opacity: 1;
   }
 }
@@ -2671,13 +2673,36 @@ body {
   }
 
   /* Chat messages in dark theme */
-  .chat-message.user {
+  .chat-message.user .message-content {
     background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
   }
 
-  .chat-message.bot {
+  .chat-message.assistant .message-content {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+  }
+
+  .message-content.typing {
+    background: rgba(255, 255, 255, 0.08);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .typing-indicator .dot {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Ensure typing animation works in dark theme */
+  .chat-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+  }
+
+  .chat-input:focus {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
   }
 
   /* Music player in dark theme */
