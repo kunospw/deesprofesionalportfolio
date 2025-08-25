@@ -19,7 +19,8 @@ const projects = [
         type: 'web',
         imageUrl: Interntrack,
         url: 'https://interntrackme.vercel.app/',
-        description: 'A simple Internship Tracker web built with HTML, CSS, and JavaScript. This project is a simple internship tracker web app that allows users to track their internship progress, and data is still stored in local storage.',
+        description: 'Simple internship tracker web app using local storage.',
+        technologies: ['HTML', 'CSS', 'JavaScript'],
         status: 'future development',
     },
     {
@@ -28,7 +29,8 @@ const projects = [
         type: 'web',
         imageUrl: JobHive,
         url: 'https://sonervous.site/',
-        description: 'Capstone project for KADA Bootcamp; developed a job portal web app with AI-powered CV analysis using GPT-4o for intelligent job matching and recommendations. Built backend APIs with Node.js, Express, and MongoDB, and implemented role-based authentication.',
+        description: 'Job portal with AI CV analysis and role-based authentication.',
+        technologies: ['Node.js', 'Express', 'MongoDB', 'React', 'GPT-4o'],
         status: 'completed',
     },
     {
@@ -37,7 +39,8 @@ const projects = [
         type: 'game',
         imageUrl: Hanoman,
         embedUrl: 'https://itch.io/embed-upload/14241671?color=bababa',
-        description: 'Story of hanoman in a pixel-art platformer game developed in Unity for a commission project collaboration.',
+        description: 'Pixel-art platformer built in Unity (commission).',
+        technologies: ['Unity', 'C#', 'Pixel Art'],
         status: 'completed',
     },
     {
@@ -46,7 +49,8 @@ const projects = [
         type: 'game',
         imageUrl: Blessed,
         embedUrl: 'https://itch.io/embed-upload/14252047?color=333333',
-        description: 'Follow the story of Avery Ross, a woman who seeks justice for a crime she did not commit. Pixel-art game developed in Unity for academic project.',
+        description: 'Narrative pixel-art game developed in Unity (academic project).',
+        technologies: ['Unity', 'C#', 'Aseprite', 'Pixel Art'],
         status: 'completed',
     },
     {
@@ -55,7 +59,8 @@ const projects = [
         type: 'game',
         imageUrl: Raturu,
         url: 'https://baraaaa.itch.io/raturu-home-fever',
-        description: 'RATURU : Home Fever, you step into the feverish dreams of a young child battling a high fever. Made for GIMJAM ITB 2025 using Unity and Blender for modelling and animation.',
+        description: 'Experimental Unity game made for GIMJAM ITB 2025.',
+        technologies: ['Unity', 'Blender', 'C#'],
         status: 'completed',
     },
     {
@@ -64,7 +69,8 @@ const projects = [
         type: 'web',
         imageUrl: Faeza,
         url: 'https://reseller-shop-project.vercel.app/',
-        description: 'A form-based e-commerce site with an admin dashboard for product management using React and Firebase.',
+        description: 'E-commerce web app with admin dashboard (React + Firebase).',
+        technologies: ['React', 'Firebase', 'JavaScript'],
         status: 'completed',
     },
     {
@@ -73,7 +79,8 @@ const projects = [
         type: 'design',
         imageUrl: Design,
         url: 'https://www.instagram.com/informatics_presuniv/',
-        description: 'Design for Informatics Instagram Post using Canva.',
+        description: 'Social media post design created with Canva.',
+        technologies: ['Canva', 'Graphic Design'],
         status: 'completed',
     },
     {
@@ -82,7 +89,8 @@ const projects = [
         type: 'video',
         videoUrl: 'https://www.youtube.com/embed/bOSITPwlA9A?si=0q9DxMctK2g4wbAf',
         url: 'https://youtu.be/bOSITPwlA9A',
-        description: 'An animation of ancient Egypt inspired by Moonknight, made using Blender for academic project.',
+        description: 'Blender animation inspired by Moon Knight.',
+        technologies: ['Blender', 'Animation'],
         status: 'completed',
     },
     {
@@ -96,7 +104,8 @@ const projects = [
       </blockquote>
     `,
         url: 'https://www.instagram.com/reel/Cv0puI1tvle/',
-        description: 'AMV edits made using After Effects 2020',
+        description: 'AMV edits created in After Effects.',
+        technologies: ['After Effects', 'Video Editing'],
         status: 'completed',
     },
 ]
@@ -328,6 +337,13 @@ const Works = () => {
 
                                         <h3 className="project-title">{project.name}</h3>
                                         <p className="project-description">{project.description}</p>
+                                        {project.technologies && (
+                                            <div className="project-technologies">
+                                                {project.technologies.map((tech, i) => (
+                                                    <span key={i} className="service-tech-tag">{tech}</span>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </motion.div>
