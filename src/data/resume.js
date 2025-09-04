@@ -9,10 +9,27 @@ import DET from '../assets/det.jpg';
 import TOEIC from '../assets/toeic.jpg';
 import Prep from '../assets/prep.jpg';
 import LSP from '../assets/lsp.jpg';
+import KADAEX from '../assets/KADAEX.jpeg';
 
 export const experiences = [
   {
     id: 1,
+    title: 'Bootcamp Participant, Participant, KADA Bootcamp – NIPA 글로벌ICT포털(GIP) | 해외IT동향 · 정보제공',
+    shortTitle: 'KADA Bootcamp 2025',
+    duration: 'Jun 2025 – Aug 2025',
+    description: [
+      'Completed 250 hours of intensive training covering web development, backend, cloud services, and DevOps, culminating in a capstone project.',
+      'Applied data analysis and UI/UX principles in capstone projects that matched the demands of theIndustry.',
+      'Worked together with peers to use industry-standard tools and practices to tackle practical tech problems.',
+    ],
+    type: 'image',
+    imageUrl: KADAEX,
+    guild: 'KADA Bootcamp',
+    role: 'Participant',
+    tags: ['Web Development', 'Backend', 'Cloud Services', 'DevOps', 'Capstone Project'],
+  },
+  {
+    id: 2,
     title: 'Decoration, Member, PUMA Informatics X PUMA Information System Tech Exploration 2024',
     shortTitle: 'Tech Exploration 2024',
     duration: 'Jun 2024 - Oct 2024',
@@ -28,7 +45,7 @@ export const experiences = [
     tags: ['Design', 'Teamwork', 'Event Management'],
   },
   {
-    id: 2,
+    id: 3,
     title: 'Volunteer, Documentation Team, Social Project, Pulau Pramuka',
     shortTitle: 'Pulau Pramuka Social Project',
     duration: 'May 2024 - Jun 2024',
@@ -44,7 +61,7 @@ export const experiences = [
     tags: ['Environment', 'Documentation', 'Video Editing'],
   },
   {
-    id: 3,
+    id: 4,
     title: 'Event Organizer, Person in Charge (PIC), PUMA Informatics Temu Alumni 2024',
     shortTitle: 'Temu Alumni 2024',
     duration: 'Feb 2024 - May 2024',
@@ -60,7 +77,7 @@ export const experiences = [
     tags: ['Leadership', 'Event Planning', 'Networking'],
   },
   {
-    id: 4,
+    id: 5,
     title: 'Web Developer, Developer Team, WeBage Liber',
     shortTitle: 'WeBage Liber Development',
     duration: 'Sep 2022 - Dec 2022',
@@ -76,7 +93,7 @@ export const experiences = [
     tags: ['Web Development', 'PHP', 'Bootstrap'],
   },
   {
-    id: 5,
+    id: 6,
     title: 'Intern, Administrative Assistant, Teluk Pucung Sub-District Office',
     shortTitle: 'Government Internship',
     duration: 'Jan 2022 - Apr 2022',
