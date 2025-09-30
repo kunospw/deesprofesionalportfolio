@@ -1,7 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 
 const ContactSection = () => {
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState(null)
+
+  const handleChange = (e) => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    setStatus(null)
+
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      subject: form.subject,
+      message: form.message,
+    }
+
+    try {
+      await emailjs.send("service_vnfccg8", "template_85l0s48", templateParams, "5eS_Acn7LK7cMvz4J")
+      setStatus({ ok: true, message: 'Message sent successfully! I\'ll get back to you soon.' })
+      setForm({ name: '', email: '', subject: '', message: '' })
+    } catch (err) {
+      console.error('Email send error', err)
+      setStatus({ ok: false, message: 'Failed to send message. Please try again later.' })
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <section id="contact" className="contact-section">
       <div className="container mx-auto contact-grid">
@@ -80,29 +111,83 @@ const ContactSection = () => {
         </div>
 
         <motion.div className="contact-right" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }}>
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <label>Full Name</label>
-              <input placeholder="Your full name" />
+              <input 
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Your full name" 
+                required
+              />
             </div>
 
             <div className="form-row">
               <label>Email Address</label>
-              <input placeholder="you@example.com" />
+              <input 
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="you@example.com" 
+                type="email"
+                required
+              />
             </div>
 
             <div className="form-row">
               <label>Subject</label>
-              <input placeholder="Subject" />
+              <input 
+                name="subject"
+                value={form.subject}
+                onChange={handleChange}
+                placeholder="Project Discussion" 
+              />
             </div>
 
             <div className="form-row">
               <label>Your Message</label>
-              <textarea placeholder="Write your message" rows={6} />
+              <textarea 
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="Tell me about your project, ideas, or just say hello..." 
+                rows={6}
+                required
+              />
             </div>
 
+            {/* Status Message */}
+            {status && (
+              <motion.div 
+                className={`contact-status ${status.ok ? 'contact-status-success' : 'contact-status-error'}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="contact-status-icon">
+                  {status.ok ? (
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                  )}
+                </div>
+                <span>{status.message}</span>
+              </motion.div>
+            )}
+
             <div className="form-actions">
-              <button className="contact-submit">Send Me Message</button>
+              <button 
+                type="submit" 
+                className="contact-submit"
+                disabled={loading}
+              >
+                {loading ? 'Sending...' : 'Send Me Message'}
+              </button>
             </div>
 
           </form>

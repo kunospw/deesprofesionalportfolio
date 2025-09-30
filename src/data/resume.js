@@ -15,11 +15,11 @@ export const experiences = [
   {
     id: 1,
     title: 'Bootcamp Participant, Participant, KADA Bootcamp – NIPA 글로벌ICT포털(GIP) | 해외IT동향 · 정보제공',
-    shortTitle: 'KADA Bootcamp 2025',
-    duration: 'Jun 2025 – Aug 2025',
+    shortTitle: 'KADA Bootcamp 2024',
+    duration: 'Jun 2024 – Aug 2024',
     description: [
       'Completed 250 hours of intensive training covering web development, backend, cloud services, and DevOps, culminating in a capstone project.',
-      'Applied data analysis and UI/UX principles in capstone projects that matched the demands of theIndustry.',
+      'Applied data analysis and UI/UX principles in capstone projects that matched the demands of the industry.',
       'Worked together with peers to use industry-standard tools and practices to tackle practical tech problems.',
     ],
     type: 'image',
@@ -115,7 +115,7 @@ export const achievements = [
     id: 1,
     title: 'KADA Bootcamp',
     description: 'Completed Full-Stack Web Development intensive training through NIPA Global ICT Portal (GIP).',
-    date: '2025',
+    date: '2024',
     skills: ['React', 'Node.js', 'Full-Stack Development'],
     category: 'bootcamp',
     imageUrl: KADA,

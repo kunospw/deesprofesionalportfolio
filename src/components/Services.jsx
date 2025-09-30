@@ -41,27 +41,42 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      title: "Web Development",
-      description: "Modern, responsive websites built with cutting-edge technologies. From concept to deployment, crafting digital experiences that captivate and convert.",
+      title: "Simple Landing Page",
+      description: "Perfect for small businesses and startups! Clean, modern landing pages that convert visitors into customers. Great for showcasing your business online.",
       icon: <WebIcon />,
-      technologies: ["React", "Node.js", "JavaScript", "Tailwind CSS"],
-      gradient: "from-blue-500 to-purple-600"
+      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+      gradient: "from-blue-500 to-purple-600",
+      price: "Coming Soon",
+      timeline: "Coming Soon",
+      features: ["Mobile responsive", "Contact form", "SEO optimized", "Fast loading"],
+      fiverrLink: null,
+      comingSoon: true
     },
     {
       id: 2,
-      title: "Game Development",
-      description: "Immersive gaming experiences that push boundaries. From indie gems to commercial projects, bringing interactive worlds to life.",
-      icon: <GameIcon />,
-      technologies: ["Unity", "C#", "Blender"],
-      gradient: "from-purple-500 to-pink-600"
+      title: "Portfolio Website",
+      description: "Professional portfolio websites for freelancers, artists, and professionals. Showcase your work beautifully with a custom design that represents you.",
+      icon: <WebIcon />,
+      technologies: ["React", "Tailwind CSS", "Modern Design"],
+      gradient: "from-purple-500 to-pink-600",
+      price: "Coming Soon",
+      timeline: "Coming Soon",
+      features: ["Custom design", "Project showcase", "Contact section", "Mobile friendly"],
+      fiverrLink: null,
+      comingSoon: true
     },
     {
       id: 3,
-      title: "Graphic Design",
-      description: "Visually stunning designs that communicate your brand's message effectively. From logos to marketing materials, bringing your vision to life.",
-      icon: <DesignIcon />,
-      technologies: ["Figma", "Canva", "Adobe Suite", "Capcut"],
-      gradient: "from-green-500 to-blue-600"
+      title: "Game Development",
+      description: "Custom 2D indie games and interactive experiences. Perfect for unique gameplay concepts, educational games, or creative storytelling through interactive media.",
+      icon: <GameIcon />,
+      technologies: ["Unity", "C#", "Game Design", "Pixel Art"],
+      gradient: "from-green-500 to-blue-600",
+      price: "Coming Soon",
+      timeline: "Coming Soon",
+      features: ["2D platformers", "Puzzle games", "Interactive stories", "Custom mechanics"],
+      fiverrLink: null,
+      comingSoon: true
     }
   ]
 
@@ -120,7 +135,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            What I <span className="services-title-accent">Create</span>
+            Affordable <span className="services-title-accent">Services</span>
           </motion.h2>
           <motion.p 
             className="services-subtitle"
@@ -129,7 +144,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Transforming ideas into digital reality with creativity
+            Perfect for small businesses and college student supporters! Quality work at student-friendly prices.
           </motion.p>
         </ScrollReveal>
 
@@ -162,6 +177,21 @@ const Services = () => {
                   <h3 className="service-title">{service.title}</h3>
                   <p className="service-description">{service.description}</p>
                   
+                  {/* Pricing and Timeline */}
+                  <div className="service-pricing-info">
+                    <div className="service-price">{service.price}</div>
+                    <div className="service-timeline">{service.timeline}</div>
+                  </div>
+                  
+                  {/* Features */}
+                  <div className="service-features">
+                    {service.features.map((feature, idx) => (
+                      <span key={idx} className="service-feature-tag">
+                        ✓ {feature}
+                      </span>
+                    ))}
+                  </div>
+                  
                   <div className="service-technologies">
                     {service.technologies.map((tech, idx) => (
                       <span key={idx} className="service-tech-tag">
@@ -170,10 +200,28 @@ const Services = () => {
                     ))}
                   </div>
                   
-                  <div className="service-arrow">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
-                    </svg>
+                  {/* Fiverr CTA */}
+                  <div className="service-cta-section">
+                    {service.comingSoon ? (
+                      <div className="service-coming-soon-button">
+                        Coming Soon on Fiverr
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                      </div>
+                    ) : (
+                      <a 
+                        href={service.fiverrLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="service-fiverr-button"
+                      >
+                        Order on Fiverr
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+                        </svg>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -181,24 +229,67 @@ const Services = () => {
           ))}
         </motion.div>
 
-        {/* Call to Action */}
+        {/* Policy Section */}
         <ScrollReveal delay={0.2}>
           <motion.div 
-            className="services-cta"
+            className="services-policy"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3>Ready to bring your vision to life?</h3>
-            <p>Let's collaborate and create something extraordinary together</p>
+            <h3>My Work Policy</h3>
+            <div className="policy-grid">
+              <div className="policy-item">
+                <div className="policy-icon">⏰</div>
+                <div className="policy-content">
+                  <h4>Timeline</h4>
+                  <p>3 business days delivery. I'll let you know if I have higher priority activities that might affect timing.</p>
+                </div>
+              </div>
+              <div className="policy-item">
+                <div className="policy-icon">📋</div>
+                <div className="policy-content">
+                  <h4>Process</h4>
+                  <p>I'll provide a form for your requirements and show you style references. No Google Meet calls needed!</p>
+                </div>
+              </div>
+              <div className="policy-item">
+                <div className="policy-icon">🎓</div>
+                <div className="policy-content">
+                  <h4>Student Friendly</h4>
+                  <p>As a college student, I understand budget constraints. Quality work at affordable prices!</p>
+                </div>
+              </div>
+              <div className="policy-item">
+                <div className="policy-icon">🔄</div>
+                <div className="policy-content">
+                  <h4>Revisions</h4>
+                  <p>2 free revisions included. Additional changes available for small extra fee.</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </ScrollReveal>
+
+        {/* Call to Action */}
+        <ScrollReveal delay={0.3}>
+          <motion.div 
+            className="services-cta"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <h3>Ready to get started?</h3>
+            <p>Support a college student while getting quality work done!</p>
             <motion.button 
               className="services-cta-button"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => window.dispatchEvent(new Event('openContactModal'))}
             >
-              Start a Project
+              Contact Me
               <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
               </svg>

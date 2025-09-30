@@ -4,17 +4,50 @@ import { ScrollReveal } from './ScrollAnimation'
 
 // Import project images
 import Hanoman from '../assets/Hanoman.png'
-import Faeza from '../assets/Webapp1.png'
+import Faeza from '../assets/image.png'
 import Blessed from '../assets/Blessed.png'
-import Foxie from '../assets/Foxie.png'
 import Design from '../assets/Design.png'
 import Raturu from '../assets/Raturu.png'
 import JobHive from '../assets/JobHive.png'
 import Interntrack from '../assets/Interntrack.png'
+import WordIT from '../assets/wordit.png'
+import GeekyNerd from '../assets/geekynerds.png'
+import InsightHub from '../assets/insighthub.png'
+
 
 const projects = [
     {
         id: 1,
+        name: 'WordIT - IT Wordle Game',
+        type: 'web',
+        imageUrl: WordIT,
+        url: 'https://wordit-game.vercel.app/',
+        description: 'Wordle game featuring IT terminology and tech lingos.',
+        technologies: ['React', 'Tailwind CSS', 'JavaScript'],
+        status: 'completed',
+    },
+    {
+        id: 2,
+        name: 'GeekyNerds.io - IT Books Store',
+        type: 'web',
+        imageUrl: GeekyNerd,
+        url: 'https://geekynerdsio.vercel.app/',
+        description: 'IT books platform with ratings, prices, category search, and cart functionality.',
+        technologies: ['React', 'Tailwind CSS', 'JavaScript'],
+        status: 'completed',
+    },
+    {
+        id: 3,
+        name: 'InsightHub - AI News Portal',
+        type: 'web',
+        imageUrl: InsightHub,
+        url: 'https://insighthubweb.vercel.app/',
+        description: 'AI news portal with The Guardian, GNews, and NewsAPI integration.',
+        technologies: ['React', 'Tailwind CSS', 'News APIs', 'AI'],
+        status: 'completed',
+    },
+    {
+        id: 4,
         name: 'Internship Tracker Web App',
         type: 'web',
         imageUrl: Interntrack,
@@ -24,7 +57,7 @@ const projects = [
         status: 'future development',
     },
     {
-        id: 2,
+        id: 5,
         name: 'Job Hive Web App',
         type: 'web',
         imageUrl: JobHive,
@@ -34,7 +67,7 @@ const projects = [
         status: 'completed',
     },
     {
-        id: 3,
+        id: 6,
         name: 'Hanoman Adventure',
         type: 'game',
         imageUrl: Hanoman,
@@ -44,7 +77,7 @@ const projects = [
         status: 'completed',
     },
     {
-        id: 4,
+        id: 7,
         name: 'Blessed Are the Peacemakers',
         type: 'game',
         imageUrl: Blessed,
@@ -54,7 +87,7 @@ const projects = [
         status: 'completed',
     },
     {
-        id: 5,
+        id: 8,
         name: 'Raturu: Homefever',
         type: 'game',
         imageUrl: Raturu,
@@ -64,17 +97,17 @@ const projects = [
         status: 'completed',
     },
     {
-        id: 6,
+        id: 9,
         name: 'Faeza Store Web App',
         type: 'web',
         imageUrl: Faeza,
-        url: 'https://reseller-shop-project.vercel.app/',
+        url: 'https://faeza-store.vercel.app/',
         description: 'E-commerce web app with admin dashboard (React + Firebase).',
         technologies: ['React', 'Firebase', 'JavaScript'],
         status: 'completed',
     },
     {
-        id: 7,
+        id: 10,
         name: 'Informatics Instagram Post Design',
         type: 'design',
         imageUrl: Design,
@@ -84,7 +117,7 @@ const projects = [
         status: 'completed',
     },
     {
-        id: 8,
+        id: 11,
         name: 'Ancient Egypt Animation',
         type: 'video',
         videoUrl: 'https://www.youtube.com/embed/bOSITPwlA9A?si=0q9DxMctK2g4wbAf',
@@ -94,7 +127,7 @@ const projects = [
         status: 'completed',
     },
     {
-        id: 9,
+        id: 12,
         name: 'AMV Edits — Reel',
         type: 'video',
         /* lightweight Instagram blockquote (script loaded separately) */
@@ -113,6 +146,7 @@ const projects = [
 const Works = () => {
     const [selectedFilter, setSelectedFilter] = useState('all')
     const [selectedProject, setSelectedProject] = useState(null)
+    const [visibleCount, setVisibleCount] = useState(6)
 
     useEffect(() => {
         // If there is an instagram embed on the page, load Instagram's embed script
@@ -149,6 +183,18 @@ const Works = () => {
     const filteredProjects = selectedFilter === 'all'
         ? projects
         : projects.filter(project => project.type === selectedFilter)
+
+    const visibleProjects = filteredProjects.slice(0, visibleCount)
+    const hasMoreProjects = visibleCount < filteredProjects.length
+
+    const handleLoadMore = () => {
+        setVisibleCount(prevCount => prevCount + 6)
+    }
+
+    const handleFilterChange = (filterKey) => {
+        setSelectedFilter(filterKey)
+        setVisibleCount(6) // Reset to show 6 projects when filter changes
+    }
 
     const getTypeIcon = (type) => {
         switch (type) {
@@ -240,7 +286,7 @@ const Works = () => {
                         {filters.map((filter, index) => (
                             <motion.button
                                 key={filter.key}
-                                onClick={() => setSelectedFilter(filter.key)}
+                                onClick={() => handleFilterChange(filter.key)}
                                 className={`filter-button ${selectedFilter === filter.key ? 'active' : ''}`}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.98 }}
@@ -261,7 +307,7 @@ const Works = () => {
                     layout
                 >
                     <AnimatePresence mode="wait">
-                        {filteredProjects.map((project, index) => (
+                        {visibleProjects.map((project, index) => (
                             <motion.div
                                 key={project.id}
                                 layout
@@ -350,6 +396,26 @@ const Works = () => {
                         ))}
                     </AnimatePresence>
                 </motion.div>
+
+                {/* Load More Button */}
+                {hasMoreProjects && (
+                    <ScrollReveal delay={0.3} className="text-center mt-12">
+                        <motion.button
+                            onClick={handleLoadMore}
+                            className="load-more-button"
+                            whileHover={{ scale: 1.05, boxShadow: "0 8px 25px rgba(84, 86, 227, 0.3)" }}
+                            whileTap={{ scale: 0.98 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <span>Load More Projects</span>
+                            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                            </svg>
+                        </motion.button>
+                    </ScrollReveal>
+                )}
             </div>
         </section>
     )
