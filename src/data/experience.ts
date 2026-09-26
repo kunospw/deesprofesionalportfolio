@@ -1,10 +1,8 @@
 import type { StaticImageData } from "next/image";
 
 import KadaPhoto from "@/assets/KADAEX.jpeg";
-import TechXPhoto from "@/assets/techx.jpg";
 import TemuAlumniPhoto from "@/assets/TemuAlumni.png";
 import WeBageLiberPhoto from "@/assets/WeBageLiber.png";
-import InternshipPhoto from "@/assets/Magang.png";
 
 export type ExperienceMedia =
   | { kind: "image"; src: StaticImageData }
@@ -16,13 +14,29 @@ export type Experience = {
   organization: string;
   context?: string;
   period: string;
-  type: "Bootcamp" | "Committee" | "Volunteer" | "Organizer" | "Project" | "Internship";
+  type: "Full-time" | "Bootcamp" | "Organizer" | "Project";
   bullets: string[];
   tags: string[];
   media?: ExperienceMedia;
 };
 
 export const experiences: Experience[] = [
+  {
+    id: "kairos",
+    role: "Software Developer (Full-Stack)",
+    organization: "Kairos Solutions",
+    context: "Client products built on Epicor Kinetic ERP",
+    period: "May 2026 – Present",
+    type: "Full-time",
+    bullets: [
+      "Build and support around half a dozen client products end to end: .NET 8 APIs, React/Next.js web apps, Flutter mobile apps and Epicor Kinetic configuration (BPMs, BAQs, DMT data loads).",
+      "Took an invoice-delivery platform through production go-live; it delivered 362 invoices in its first week with zero send errors across roughly 90,000 log lines.",
+      "Led resilience work during an ERP outage, adding a circuit breaker and configurable timeouts, and cut the service's Docker build context from 2.8 GB to about 1 MB.",
+      "Became sole developer and owner of a fleet-management product (React planner, Flutter driver app, .NET 8 API with SignalR) and handle iOS and Play Store releases across projects.",
+      "Wrote the team's onboarding guide, development handbook, workflow standards and deployment guides, and ran internal knowledge-sharing sessions.",
+    ],
+    tags: [".NET 8", "ASP.NET Core", "Next.js", "React", "Flutter", "Epicor Kinetic", "Docker"],
+  },
   {
     id: "kada",
     role: "Bootcamp Participant",
@@ -37,35 +51,6 @@ export const experiences: Experience[] = [
     ],
     tags: ["Web Development", "Backend", "Cloud Services", "DevOps", "Capstone"],
     media: { kind: "image", src: KadaPhoto },
-  },
-  {
-    id: "techx",
-    role: "Decoration Team Member",
-    organization: "PUMA Informatics × PUMA Information System",
-    context: "Tech Exploration 2024",
-    period: "Jun 2024 – Oct 2024",
-    type: "Committee",
-    bullets: [
-      "Developed the event's visual concept together with the team.",
-      "Built custom event props to match the design direction.",
-      "Helped decorate the venue and stage for the Computer Science student event.",
-    ],
-    tags: ["Design", "Teamwork", "Event Management"],
-    media: { kind: "image", src: TechXPhoto },
-  },
-  {
-    id: "pulau-pramuka",
-    role: "Documentation Lead",
-    organization: "Social Project, Pulau Pramuka",
-    period: "May 2024 – Jun 2024",
-    type: "Volunteer",
-    bullets: [
-      "Designed the banner and visual material for the exhibition.",
-      "Edited recap videos and handled documentation during the event.",
-      "Took part in mangrove planting as part of an environmental initiative.",
-    ],
-    tags: ["Environment", "Documentation", "Video Editing"],
-    media: { kind: "video", youtubeId: "BLLQIHAuIlQ" },
   },
   {
     id: "temu-alumni",
@@ -96,19 +81,5 @@ export const experiences: Experience[] = [
     ],
     tags: ["Web Development", "PHP", "Bootstrap"],
     media: { kind: "image", src: WeBageLiberPhoto },
-  },
-  {
-    id: "teluk-pucung",
-    role: "Administrative Assistant Intern",
-    organization: "Teluk Pucung Sub-District Office",
-    period: "Jan 2022 – Apr 2022",
-    type: "Internship",
-    bullets: [
-      "Organized and processed administrative documents for 30+ residents per day.",
-      "Recapped PBB (land and building tax) data from Excel into the government database system.",
-      "Handled data entry for 4 RW covering 40–120 RT, over 1,600 resident entries in total.",
-    ],
-    tags: ["Administration", "Data Entry", "Government"],
-    media: { kind: "image", src: InternshipPhoto },
   },
 ];

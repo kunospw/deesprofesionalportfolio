@@ -3,9 +3,7 @@ import type { StaticImageData } from "next/image";
 import Kada from "@/assets/kada.jpeg";
 import Gimjam from "@/assets/gimjam.jpg";
 import GenAI from "@/assets/genai.jpg";
-import DET from "@/assets/det.jpg";
 import TOEIC from "@/assets/toeic.jpg";
-import Prep from "@/assets/prep.jpg";
 import LSP from "@/assets/lsp.jpg";
 
 export type Certificate = {
@@ -50,15 +48,6 @@ export const certificates: Certificate[] = [
     image: GenAI,
   },
   {
-    id: "det",
-    title: "Duolingo English Test",
-    description: "Scored 120 on the Duolingo English Test (valid until Oct 2025).",
-    date: "Oct 2023",
-    category: "Language",
-    skills: ["English Proficiency", "Communication"],
-    image: DET,
-  },
-  {
     id: "toeic",
     title: "TOEIC",
     description: "Scored 865 on the TOEIC by ETS Global B.V. (valid until Dec 2024).",
@@ -66,15 +55,6 @@ export const certificates: Certificate[] = [
     category: "Language",
     skills: ["English Proficiency", "Business English"],
     image: TOEIC,
-  },
-  {
-    id: "toeic-prep",
-    title: "TOEIC Preparation Course",
-    description: "Completed a 20-hour intensive TOEIC preparation course with WELTS.",
-    date: "Dec 2022",
-    category: "Training",
-    skills: ["Test Preparation", "English"],
-    image: Prep,
   },
   {
     id: "lsp",

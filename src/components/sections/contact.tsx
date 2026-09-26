@@ -27,10 +27,10 @@ export function Contact() {
       <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
         <div>
           <SectionHeading
-            index="07"
+            index="06"
             eyebrow="Contact"
             title="Get in Touch"
-            description="Have a project, an internship opening, or just want to say hi? Drop me a message and I'll get back to you."
+            description="Have a role, a project or a question about my work? Send me a message and I'll get back to you."
             className="md:mb-12"
           />
           <Reveal>

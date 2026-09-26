@@ -9,9 +9,8 @@ import Hanoman from "@/assets/Hanoman.png";
 import Blessed from "@/assets/Blessed.png";
 import Raturu from "@/assets/Raturu.png";
 import Faeza from "@/assets/image.png";
-import Design from "@/assets/Design.png";
 
-export type ProjectCategory = "web" | "game" | "design" | "video";
+export type ProjectCategory = "client" | "web" | "game";
 
 export type Project = {
   id: string;
@@ -25,7 +24,7 @@ export type Project = {
   youtubeId?: string;
   /** Opened in a new tab. */
   href?: string;
-  hrefLabel?: "Live site" | "View on itch.io" | "View on Instagram" | "Watch";
+  hrefLabel?: "Live site" | "View on itch.io";
   /** Playable itch.io upload shown in a dialog. */
   playEmbed?: string;
   context?: string;
@@ -34,13 +33,52 @@ export type Project = {
 export const projectCategories: { id: ProjectCategory | "all"; label: string }[] =
   [
     { id: "all", label: "All" },
+    { id: "client", label: "Client work" },
     { id: "web", label: "Web" },
     { id: "game", label: "Games" },
-    { id: "design", label: "Design" },
-    { id: "video", label: "Animation" },
   ];
 
 export const projects: Project[] = [
+  {
+    id: "invoice-delivery",
+    title: "Invoice Delivery Platform",
+    category: "client",
+    description:
+      "Pulls invoices from Epicor Kinetic, builds PDF packages and delivers them by email or Google Drive based on each customer's preference. I took it through go-live, built sync reconciliation with run history and alerts, and hardened it with a circuit breaker. First week live: 362 invoices, zero send errors.",
+    tech: ["ASP.NET Core 8", "Next.js", "Epicor Kinetic", "Docker"],
+    status: "completed",
+    context: "Kairos Solutions",
+  },
+  {
+    id: "fleet-management",
+    title: "Fleet Management System",
+    category: "client",
+    description:
+      "A planner web app, a driver mobile app and a real-time API for a logistics company. I own it end to end: requirements, QA with the client, live driver tracking and route maps, ERP-rendered work orders and Play Store releases.",
+    tech: ["React", "Flutter", ".NET 8", "SignalR", "Epicor Kinetic"],
+    status: "in-progress",
+    context: "Kairos Solutions",
+  },
+  {
+    id: "operations-app",
+    title: "Restaurant Operations App",
+    category: "client",
+    description:
+      "Mobile operations app for a restaurant chain's outlets. I handled iOS builds and code signing, and root-caused duplicate purchase-order and inventory-transfer entries reported by outlets.",
+    tech: ["Flutter", ".NET", "iOS", "Epicor Kinetic"],
+    status: "completed",
+    context: "Kairos Solutions",
+  },
+  {
+    id: "time-entry",
+    title: "Time Entry & Proof of Delivery",
+    category: "client",
+    description:
+      "Clock-in and proof-of-delivery mobile apps. I shipped iOS deployments, fixed clock-out edge cases and produced an actual-vs-billable hours report that shaped a change request.",
+    tech: ["Flutter", "iOS", "Epicor Kinetic"],
+    status: "completed",
+    context: "Kairos Solutions",
+  },
   {
     id: "wordit",
     title: "WordIT",
@@ -147,38 +185,5 @@ export const projects: Project[] = [
     image: Faeza,
     href: "https://faeza-store.vercel.app/",
     hrefLabel: "Live site",
-  },
-  {
-    id: "informatics-posts",
-    title: "Informatics Instagram Posts",
-    category: "design",
-    description:
-      "Social media post designs for the Informatics study program, made in Canva.",
-    tech: ["Canva", "Graphic Design"],
-    status: "completed",
-    image: Design,
-    href: "https://www.instagram.com/informatics_presuniv/",
-    hrefLabel: "View on Instagram",
-  },
-  {
-    id: "egypt-animation",
-    title: "Ancient Egypt Animation",
-    category: "video",
-    description: "A Blender animation inspired by Moon Knight.",
-    tech: ["Blender", "Animation"],
-    status: "completed",
-    youtubeId: "bOSITPwlA9A",
-    href: "https://youtu.be/bOSITPwlA9A",
-    hrefLabel: "Watch",
-  },
-  {
-    id: "amv-edits",
-    title: "AMV Edits",
-    category: "video",
-    description: "Anime music video edits made in After Effects.",
-    tech: ["After Effects", "Video Editing"],
-    status: "completed",
-    href: "https://www.instagram.com/reel/Cv0puI1tvle/",
-    hrefLabel: "View on Instagram",
   },
 ];

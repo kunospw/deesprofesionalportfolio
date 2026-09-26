@@ -24,7 +24,7 @@ export function Skills() {
         index="03"
         eyebrow="Skills"
         title="Skill Tree"
-        description="The tools I reach for, laid out like an RPG skill tree. Hover or tap a node to see where I've used it."
+        description="The stack I use at work and on side projects, laid out like an RPG skill tree. Hover or tap a node to see where I've used it."
       />
 
       <Reveal>
@@ -45,10 +45,10 @@ export function Skills() {
             <span aria-hidden="true" className="h-8 w-px bg-border" />
           </div>
 
-          <div className="relative grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 lg:grid-cols-5">
+          <div className="relative grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 lg:grid-cols-6">
             <span
               aria-hidden="true"
-              className="absolute top-0 right-[calc(10%-0.4rem)] left-[calc(10%-0.4rem)] hidden h-px bg-border lg:block"
+              className="absolute top-0 right-[calc(100%/12-5rem/12)] left-[calc(100%/12-5rem/12)] hidden h-px bg-border lg:block"
             />
             {skillGroups.map((group) => {
               const isActiveGroup = selected.group.id === group.id;

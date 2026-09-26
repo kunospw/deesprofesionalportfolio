@@ -26,7 +26,7 @@ export function Experience() {
         index="04"
         eyebrow="Journey"
         title="Experience"
-        description="Bootcamps, committees, volunteering and my first dev team."
+        description="Professional work first, then the training and teams that got me there."
       />
 
       {/* The ::before is the timeline spine: left edge on mobile, centred from md up. */}

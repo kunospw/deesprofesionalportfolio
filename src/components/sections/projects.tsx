@@ -5,11 +5,10 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import {
   ArrowUpRight,
+  Briefcase,
   ChevronDown,
-  Clapperboard,
   Gamepad2,
   Globe,
-  PenTool,
   Play,
 } from "lucide-react";
 
@@ -30,10 +29,9 @@ import { cn } from "@/lib/utils";
 const INITIAL_COUNT = 6;
 
 const categoryMeta: Record<ProjectCategory, { label: string; icon: typeof Globe }> = {
+  client: { label: "Client work", icon: Briefcase },
   web: { label: "Web", icon: Globe },
   game: { label: "Game", icon: Gamepad2 },
-  design: { label: "Design", icon: PenTool },
-  video: { label: "Animation", icon: Clapperboard },
 };
 
 export function Projects() {
@@ -50,7 +48,7 @@ export function Projects() {
         index="02"
         eyebrow="Work"
         title="Projects"
-        description="Web apps, games and the odd creative experiment. Games marked playable run right here in your browser."
+        description="Production client work from Kairos, plus personal web apps and games. Client code is private, so those cards describe the work rather than link to it."
       />
 
       <Reveal>
@@ -215,13 +213,15 @@ function ProjectMedia({ project }: { project: Project }) {
   }
 
   // No screenshot: a pattern tile borrowed from the ID card's stripes.
-  const Icon = project.href?.includes("instagram.com") ? InstagramIcon : Clapperboard;
+  const Icon = project.href?.includes("instagram.com")
+    ? InstagramIcon
+    : categoryMeta[project.category].icon;
   return (
     <div className="flex size-full flex-col items-center justify-center gap-3 bg-[#1e1f4b] text-[#8c8de3]">
       <span aria-hidden="true" className="absolute inset-0 opacity-20 bg-stripes" />
       <Icon className="relative size-9" />
       <span className="relative font-pixel text-xs tracking-[0.2em] uppercase">
-        {categoryMeta[project.category].label}
+        {project.category === "client" ? "Client project" : categoryMeta[project.category].label}
       </span>
     </div>
   );

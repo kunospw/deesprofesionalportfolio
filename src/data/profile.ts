@@ -8,17 +8,17 @@ export const profile = {
   nickname: "Dee",
   handle: "kunospw",
   wordmark: "dyah.rini",
-  role: "Web & Game Developer",
+  role: "Full-Stack Developer",
   /** Cycled by the typewriter in the hero. */
   roles: [
-    "Web Developer",
-    "Game Developer",
-    "Informatics Student",
-    "Pixel-Art Tinkerer",
+    "Full-Stack Developer",
+    "Software Developer at Kairos",
+    ".NET · Next.js · Flutter",
+    "Game Developer on weekends",
   ],
   tagline: "Blending creativity and logic like a witchcraft spell.",
   intro:
-    "I build web apps and pixel-art games, and I sweat the small details that make them feel alive.",
+    "I build production apps end to end, from .NET APIs and Next.js dashboards to Flutter mobile apps and ERP integrations.",
   location: "Bekasi, Indonesia",
   mapsUrl: "https://maps.google.com/?q=Bekasi%2C%20Indonesia",
   email: "dyahrini908@gmail.com",
@@ -28,9 +28,9 @@ export const profile = {
   /** From the back of Dee's ID card. */
   quote: "I am inimitable, I am an original.",
   about: [
-    "I'm Dee, an Informatics student and web & game developer from Bekasi, Indonesia. I like building things people can actually use or play: React apps wired to real APIs, and pixel-art games made in Unity.",
-    "Most of what I know I learned by shipping. I completed 250 hours of full-stack, cloud and DevOps training at the KADA Bootcamp, studied Generative AI through the Digital Talent Scholarship, and joined game jams like ITB GIMJAM 2025, where our team built Raturu: Homefever.",
-    "Outside the editor I organize campus events, design social posts, edit videos and animate in Blender, which is probably why I care so much about how things look and feel.",
+    "I'm Dee, a full-stack developer at Kairos Solutions, based in Bekasi, Indonesia. I build and support client products on top of Epicor Kinetic ERP: ASP.NET Core APIs, React and Next.js web apps, Flutter mobile apps, and the ERP configuration that ties them together.",
+    "I like owning a product end to end. I've taken an invoice-delivery platform through go-live and hardened it for production, and I'm now the sole developer on a fleet-management system, from requirements and QA with the client to Play Store releases.",
+    "Before Kairos I studied Informatics and completed 250 hours of full-stack, cloud and DevOps training at the KADA Bootcamp. I still build pixel-art games in Unity on the side, which is where my eye for detail comes from.",
   ],
 } as const;
 
@@ -71,26 +71,26 @@ export const socials: Social[] = [
 export const highlights = [
   {
     icon: "code",
-    title: "Web Development",
+    title: "Full-Stack Delivery",
     description:
-      "React and Tailwind front-ends backed by Node.js, Express, MongoDB or Firebase, from landing pages to full-stack apps with auth and AI features.",
+      "ASP.NET Core 8 APIs, React and Next.js front-ends, SignalR real-time features and Docker deployments, shipped to production for real clients.",
   },
   {
-    icon: "game",
-    title: "Game Development",
+    icon: "mobile",
+    title: "Mobile Apps",
     description:
-      "Unity and C# games with hand-made pixel art, built for commissions, coursework and game jams.",
+      "Flutter apps for drivers, outlets and field staff, including iOS builds and code signing and Play Store release management.",
   },
   {
-    icon: "palette",
-    title: "Design & Motion",
+    icon: "erp",
+    title: "ERP Integration",
     description:
-      "Event and social media visuals in Canva, 3D animation in Blender and video edits in After Effects.",
+      "Epicor Kinetic BPMs, BAQs and DMT data loads, plus the sync jobs, reconciliation and alerting that keep apps and ERP data in step.",
   },
   {
     icon: "users",
-    title: "Community & Events",
+    title: "Ownership & Team",
     description:
-      "Led Temu Alumni 2024 as person in charge, built event decor for Tech Exploration and documented community projects.",
+      "Go-live checklists, runbooks and root-cause write-ups, plus onboarding guides, dev standards and knowledge-sharing sessions for the team.",
   },
 ] as const;

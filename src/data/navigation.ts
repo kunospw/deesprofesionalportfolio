@@ -3,7 +3,6 @@ import {
   Briefcase,
   CodeXml,
   FolderOpen,
-  Handshake,
   House,
   Mail,
   User,
@@ -16,7 +15,6 @@ export const sections = [
   { id: "skills", label: "Skills", icon: CodeXml },
   { id: "experience", label: "Experience", icon: Briefcase },
   { id: "certificates", label: "Certificates", icon: Award },
-  { id: "services", label: "Services", icon: Handshake },
   { id: "contact", label: "Contact", icon: Mail },
 ] as const;
 

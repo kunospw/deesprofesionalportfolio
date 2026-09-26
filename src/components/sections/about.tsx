@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CodeXml, Gamepad2, Palette, Users } from "lucide-react";
+import { CodeXml, Database, Smartphone, Users } from "lucide-react";
 
 import avatar from "@/assets/avatar.png";
 import { Reveal } from "@/components/motion";
@@ -9,8 +9,8 @@ import { highlights, profile } from "@/data/profile";
 
 const icons = {
   code: CodeXml,
-  game: Gamepad2,
-  palette: Palette,
+  mobile: Smartphone,
+  erp: Database,
   users: Users,
 } as const;
 
@@ -18,9 +18,9 @@ const playerStats = [
   { label: "Name", value: profile.name },
   { label: "Alias", value: `${profile.nickname} · ${profile.handle}` },
   { label: "Class", value: profile.role },
+  { label: "Guild", value: "Kairos Solutions" },
   { label: "Base", value: profile.location },
   { label: "Languages", value: "Indonesian, English (TOEIC 865)" },
-  { label: "Soundtrack", value: "Hamilton, on repeat" },
 ];
 
 export function About() {

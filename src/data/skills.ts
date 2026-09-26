@@ -14,68 +14,127 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
+    id: "backend",
+    label: "Backend",
+    color: "#5eead4",
+    skills: [
+      {
+        name: "ASP.NET Core",
+        note: ".NET 8 APIs with background sync jobs, retries, circuit breakers and configurable timeouts.",
+        usedIn: ["Invoice Delivery Platform", "Fleet Management System"],
+      },
+      {
+        name: "C#",
+        note: "Backend services at work, and gameplay scripting in Unity on the side.",
+        usedIn: ["Invoice Delivery Platform", "Hanoman Adventure"],
+      },
+      {
+        name: "SignalR",
+        note: "Real-time updates for live driver tracking.",
+        usedIn: ["Fleet Management System"],
+      },
+      {
+        name: "Node.js & Express",
+        note: "REST APIs with role-based authentication and MongoDB.",
+        usedIn: ["Job Hive"],
+      },
+    ],
+  },
+  {
     id: "frontend",
     label: "Frontend",
     color: "#8c8de3",
     skills: [
       {
+        name: "Next.js",
+        note: "Admin and operations dashboards for production client apps, and this site.",
+        usedIn: ["Invoice Delivery Platform", "This portfolio"],
+      },
+      {
         name: "React",
-        note: "Component-driven interfaces with hooks, routing and API data.",
-        usedIn: ["WordIT", "GeekyNerds.io", "InsightHub", "Job Hive", "Faeza Store"],
+        note: "Component-driven interfaces with routing and live API data.",
+        usedIn: ["Fleet Management System", "InsightHub", "Job Hive"],
       },
       {
         name: "Tailwind CSS",
         note: "Utility-first styling for fast, consistent, responsive layouts.",
-        usedIn: ["WordIT", "GeekyNerds.io", "InsightHub"],
-      },
-      {
-        name: "JavaScript",
-        note: "The glue for everything on the web: DOM, fetch, local storage.",
-        usedIn: ["Internship Tracker", "WordIT", "Faeza Store"],
-      },
-      {
-        name: "HTML & CSS",
-        note: "Semantic, responsive markup from scratch, with Bootstrap when speed matters.",
-        usedIn: ["Internship Tracker", "WeBage Liber"],
+        usedIn: ["WordIT", "GeekyNerds.io", "This portfolio"],
       },
     ],
   },
   {
-    id: "backend",
-    label: "Backend & Data",
-    color: "#5eead4",
+    id: "mobile",
+    label: "Mobile",
+    color: "#fbbf24",
     skills: [
       {
-        name: "Node.js & Express",
-        note: "REST APIs with role-based authentication.",
-        usedIn: ["Job Hive"],
+        name: "Flutter",
+        note: "Driver, outlet and field-staff apps: clock-in, proof of delivery and work orders.",
+        usedIn: ["Fleet Management System", "Restaurant Operations App", "Time Entry & Proof of Delivery"],
       },
       {
-        name: "MongoDB",
-        note: "Document models for users, job listings and applications.",
-        usedIn: ["Job Hive"],
+        name: "iOS release",
+        note: "Builds, certificates and code signing, including recovering a broken signing setup.",
+        usedIn: ["Restaurant Operations App", "Time Entry & Proof of Delivery"],
       },
       {
-        name: "Firebase",
-        note: "Backend and admin dashboard for an online store.",
-        usedIn: ["Faeza Store"],
+        name: "Play Store release",
+        note: "Release signing and publishing for Android apps.",
+        usedIn: ["Fleet Management System"],
+      },
+    ],
+  },
+  {
+    id: "erp",
+    label: "ERP",
+    color: "#f472b6",
+    skills: [
+      {
+        name: "Epicor Kinetic",
+        note: "The ERP behind every client product I work on at Kairos.",
+        usedIn: ["Invoice Delivery Platform", "Fleet Management System", "Restaurant Operations App"],
       },
       {
-        name: "PHP",
-        note: "CRUD features and form handling for a school library prototype.",
-        usedIn: ["WeBage Liber"],
+        name: "BPMs & BAQs",
+        note: "Business rules and queries, such as enforcing an invoice delivery method on customers, with test plans.",
+        usedIn: ["Invoice Delivery Platform"],
       },
       {
-        name: "AI & News APIs",
-        note: "GPT-4o CV analysis, plus stories from The Guardian, GNews and NewsAPI.",
-        usedIn: ["Job Hive", "InsightHub"],
+        name: "DMT data loads",
+        note: "Loading customer billing and configuration data for go-lives.",
+        usedIn: ["Invoice Delivery Platform"],
+      },
+    ],
+  },
+  {
+    id: "workflow",
+    label: "Delivery",
+    color: "#a3a3a3",
+    skills: [
+      {
+        name: "Docker",
+        note: "Containerised deployments; cut one build context from 2.8 GB to about 1 MB.",
+        usedIn: ["Invoice Delivery Platform"],
+      },
+      {
+        name: "Linux servers",
+        note: "Deployments and production support, plus the team's server-access guide.",
+      },
+      {
+        name: "Git & GitHub",
+        note: "Version control and team workflow standards.",
+      },
+      {
+        name: "Incident response",
+        note: "Root-cause analysis, runbooks and go-live checklists.",
+        usedIn: ["Invoice Delivery Platform", "Restaurant Operations App"],
       },
     ],
   },
   {
     id: "game",
     label: "Game Dev",
-    color: "#fbbf24",
+    color: "#fb923c",
     skills: [
       {
         name: "Unity",
@@ -83,67 +142,9 @@ export const skillGroups: SkillGroup[] = [
         usedIn: ["Hanoman Adventure", "Blessed Are the Peacemakers", "Raturu: Homefever"],
       },
       {
-        name: "C#",
-        note: "Gameplay scripting for movement, dialogue and game state.",
-        usedIn: ["Hanoman Adventure", "Blessed Are the Peacemakers", "Raturu: Homefever"],
-      },
-      {
         name: "Pixel Art",
-        note: "Sprites, scenes and UI drawn pixel by pixel, including in Aseprite.",
+        note: "Sprites, scenes and UI, including in Aseprite.",
         usedIn: ["Hanoman Adventure", "Blessed Are the Peacemakers"],
-      },
-      {
-        name: "Blender",
-        note: "3D assets and animation.",
-        usedIn: ["Raturu: Homefever", "Ancient Egypt Animation"],
-      },
-    ],
-  },
-  {
-    id: "design",
-    label: "Design & Media",
-    color: "#f472b6",
-    skills: [
-      {
-        name: "Canva",
-        note: "Social media posts, banners and event visuals.",
-        usedIn: ["Informatics Instagram Posts", "Pulau Pramuka exhibition"],
-      },
-      {
-        name: "After Effects",
-        note: "Editing and motion for short-form video.",
-        usedIn: ["AMV Edits"],
-      },
-      {
-        name: "Video Editing",
-        note: "Recap videos and event documentation.",
-        usedIn: ["Pulau Pramuka social project"],
-      },
-      {
-        name: "UI/UX",
-        note: "Applying UI/UX principles to capstone and product work.",
-        usedIn: ["KADA Bootcamp capstone"],
-      },
-    ],
-  },
-  {
-    id: "workflow",
-    label: "Workflow",
-    color: "#a3a3a3",
-    skills: [
-      {
-        name: "Git & GitHub",
-        note: "Version control for solo and team projects.",
-      },
-      {
-        name: "Vercel",
-        note: "Deploying and hosting web projects.",
-        usedIn: ["WordIT", "GeekyNerds.io", "InsightHub", "Faeza Store", "Internship Tracker"],
-      },
-      {
-        name: "Cloud & DevOps",
-        note: "Cloud services and DevOps fundamentals.",
-        usedIn: ["KADA Bootcamp"],
       },
     ],
   },

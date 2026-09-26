@@ -12,7 +12,7 @@ import { profile, siteUrl } from "@/data/profile";
 import { themeScript } from "@/lib/theme-script";
 import { cn } from "@/lib/utils";
 
-const description = `${profile.name} (${profile.nickname}) is a ${profile.role.toLowerCase()} and Informatics student from ${profile.location}. ${profile.tagline}`;
+const description = `${profile.name} (${profile.nickname}) is a ${profile.role.toLowerCase()} at Kairos Solutions, building .NET, Next.js and Flutter apps on Epicor Kinetic. Based in ${profile.location}.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -28,11 +28,12 @@ export const metadata: Metadata = {
     profile.name,
     "Dee",
     "kunospw",
-    "Web Developer",
-    "Game Developer",
-    "React",
-    "Unity",
-    "Pixel Art",
+    "Full-Stack Developer",
+    "Software Developer",
+    ".NET",
+    "Next.js",
+    "Flutter",
+    "Epicor Kinetic",
     "Portfolio",
     "Indonesia",
   ],
