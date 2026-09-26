@@ -51,4 +51,4 @@ See `.env.example`. `GEMINI_API_KEY` is read only on the server by `src/app/api/
 
 ## Deploying
 
-On Vercel, `vercel.json` pins the framework preset to Next.js. Add `GEMINI_API_KEY` (and optionally `NEXT_PUBLIC_SITE_URL`) under Project Settings → Environment Variables.
+The site deploys on Netlify. `netlify.toml` sets the build command, the `.next` publish directory and Node 22; Netlify's Next.js adapter is picked up automatically. Add `GEMINI_API_KEY` (and optionally `NEXT_PUBLIC_SITE_URL`) under Site configuration → Environment variables.

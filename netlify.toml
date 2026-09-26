@@ -1,0 +1,10 @@
+# Netlify detects Next.js and deploys it with its OpenNext adapter.
+# These settings override the old Vite values (publish = "dist") saved in the
+# site's dashboard.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 16 needs Node.js 20.9 or newer.
+  NODE_VERSION = "22"
