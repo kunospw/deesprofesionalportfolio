@@ -6,7 +6,6 @@ import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { SideRail } from "@/components/layout/side-rail";
 import { TopNav } from "@/components/layout/top-nav";
 import { About } from "@/components/sections/about";
-import { Certificates } from "@/components/sections/certificates";
 import { Contact } from "@/components/sections/contact";
 import { Experience } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
@@ -34,7 +33,6 @@ export default function Home() {
         <Projects />
         <Skills />
         <Experience />
-        <Certificates />
         <Contact />
       </main>
 

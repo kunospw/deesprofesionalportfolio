@@ -1,4 +1,3 @@
-import { certificates } from "@/data/certificates";
 import { experiences } from "@/data/experience";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
@@ -37,9 +36,6 @@ export function buildAssistantContext() {
       (e) =>
         `- ${e.role}, ${e.organization}${e.context ? ` (${e.context})` : ""}, ${e.period}: ${e.bullets.join(" ")}`,
     ),
-    "",
-    "CERTIFICATES AND ACHIEVEMENTS",
-    ...certificates.map((c) => `- ${c.title} (${c.date}): ${c.description}`),
     "",
     "SKILLS",
     ...skillGroups.map((g) => `- ${g.label}: ${g.skills.map((s) => s.name).join(", ")}`),

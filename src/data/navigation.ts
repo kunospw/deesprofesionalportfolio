@@ -1,5 +1,4 @@
 import {
-  Award,
   Briefcase,
   CodeXml,
   FolderOpen,
@@ -14,7 +13,6 @@ export const sections = [
   { id: "projects", label: "Projects", icon: FolderOpen },
   { id: "skills", label: "Skills", icon: CodeXml },
   { id: "experience", label: "Experience", icon: Briefcase },
-  { id: "certificates", label: "Certificates", icon: Award },
   { id: "contact", label: "Contact", icon: Mail },
 ] as const;
 
