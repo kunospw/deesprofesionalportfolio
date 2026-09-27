@@ -1,0 +1,89 @@
+import { GitHubIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
+
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://dyahrini.space";
+
+export const profile = {
+  name: "Dyah Puspo Rini",
+  nickname: "Dee",
+  handle: "kunospw",
+  wordmark: "dyah.rini",
+  role: "Full-Stack Developer",
+  /** Shown as the mono strapline under the name in the hero. */
+  focus: ["Full-Stack Developer", ".NET · Next.js · Flutter", "Epicor Kinetic ERP"],
+  tagline: "Build · Integrate · Deploy · Support",
+  intro:
+    "Full-stack developer with broad end-to-end experience building, integrating, deploying and supporting production applications.",
+  location: "Bekasi, Indonesia",
+  mapsUrl: "https://maps.google.com/?q=Bekasi%2C%20Indonesia",
+  email: "dyahrini908@gmail.com",
+  phone: "+62 812 9859 0798",
+  cv: "/Dyah_Puspo_RIni_CV.pdf",
+  cvFileName: "Dyah_Puspo_Rini_CV.pdf",
+  about: [
+    "I'm a full-stack developer who builds, integrates, deploys and supports production applications end to end. Day to day, that means .NET, React/Next.js and Flutter apps connected to Epicor Kinetic ERP, as a software developer intern at Kairos Business Solutions.",
+    "My work covers the whole lifecycle: gathering requirements, development, deployments and go-lives, production support and root-cause analysis, QA with users, and the technical documentation that keeps a team moving. I supported an invoice-delivery application through go-live and I'm the sole developer on a fleet-management system.",
+    "Before Kairos I built a React Native farm-operations dashboard at PT Hyoshii Agri Sejahtera and helped develop a Unity physiological simulation as a research assistant. I have a background in game development with Unity, completed 250 hours of full-stack, cloud and DevOps training at the KADA Bootcamp, and I'm studying Computing at President University.",
+  ],
+} as const;
+
+export type Social = {
+  label: string;
+  handle: string;
+  href: string;
+  icon: typeof GitHubIcon;
+};
+
+export const socials: Social[] = [
+  {
+    label: "GitHub",
+    handle: "kunospw",
+    href: "https://github.com/kunospw",
+    icon: GitHubIcon,
+  },
+  {
+    label: "LinkedIn",
+    handle: "dyahpusporini",
+    href: "https://www.linkedin.com/in/dyahpusporini",
+    icon: LinkedInIcon,
+  },
+  {
+    label: "Instagram",
+    handle: "@kunospw",
+    href: "https://instagram.com/kunospw",
+    icon: InstagramIcon,
+  },
+  {
+    label: "Instagram",
+    handle: "@lemmerrison",
+    href: "https://instagram.com/lemmerrison",
+    icon: InstagramIcon,
+  },
+];
+
+export const highlights = [
+  {
+    icon: "code",
+    title: "Full-Stack Delivery",
+    description:
+      "ASP.NET Core 8 APIs, React and Next.js front-ends, SignalR real-time features and Docker deployments, shipped to production.",
+  },
+  {
+    icon: "mobile",
+    title: "Mobile Apps",
+    description:
+      "Flutter and React Native apps for operations and field teams, including iOS code signing and Play Store releases.",
+  },
+  {
+    icon: "erp",
+    title: "ERP Integration",
+    description:
+      "Epicor Kinetic BPMs, BAQs and DMT data loads, plus the sync jobs, reconciliation and alerting that keep apps and ERP data in step.",
+  },
+  {
+    icon: "users",
+    title: "Ownership & Team",
+    description:
+      "Go-lives, production support and root-cause analysis, plus 10 technical, deployment and onboarding guides written for the team.",
+  },
+] as const;

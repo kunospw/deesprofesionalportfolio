@@ -1,0 +1,15 @@
+# Netlify builds this Next.js app with its OpenNext adapter (declared below).
+# These settings override the old Vite values (publish = "dist") saved in the
+# site's dashboard.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 16 needs Node.js 20.9 or newer.
+  NODE_VERSION = "22"
+
+# The site was created as a Vite project, so Netlify doesn't add its Next.js
+# adapter automatically; without it .next is published as inert files (404s).
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
