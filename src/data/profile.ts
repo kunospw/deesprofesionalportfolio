@@ -8,17 +8,17 @@ export const profile = {
   nickname: "Dee",
   handle: "kunospw",
   wordmark: "dyah.rini",
-  role: "Software Developer",
+  role: "Full-Stack Developer",
   /** Cycled by the typewriter in the hero. */
   roles: [
-    "Software Developer",
-    "Software Developer Intern at Kairos",
+    "Full-Stack Developer",
+    "Build · Integrate · Deploy · Support",
     ".NET · Next.js · Flutter",
-    "Informatics student at President University",
+    "Software Developer Intern at Kairos",
   ],
   tagline: "Blending creativity and logic like a witchcraft spell.",
   intro:
-    "I build web and mobile apps end to end, from .NET APIs and Next.js dashboards to Flutter and React Native apps and Epicor ERP integrations.",
+    "Full-stack developer with broad end-to-end experience building, integrating, deploying and supporting production applications.",
   location: "Bekasi, Indonesia",
   mapsUrl: "https://maps.google.com/?q=Bekasi%2C%20Indonesia",
   email: "dyahrini908@gmail.com",
@@ -28,7 +28,7 @@ export const profile = {
   /** From the back of Dee's ID card. */
   quote: "I am inimitable, I am an original.",
   about: [
-    "I'm Dee, an Informatics student at President University and a software developer intern at Kairos Business Solutions, based in Bekasi, Indonesia. I build web and mobile apps integrated with Epicor Kinetic ERP: ASP.NET Core APIs, React and Next.js web apps, and Flutter mobile apps.",
+    "I'm Dee, a full-stack developer with broad end-to-end experience building, integrating, deploying and supporting production applications. I'm currently a software developer intern at Kairos Business Solutions and an Informatics student at President University, based in Bekasi, Indonesia. I build ASP.NET Core APIs, React and Next.js web apps and Flutter mobile apps integrated with Epicor Kinetic ERP.",
     "My work covers the whole lifecycle: development, deployments and go-lives, production support, QA with users, and the technical documentation that keeps a team moving. I supported an invoice-delivery application through go-live and I'm the sole developer on a fleet-management system.",
     "Before Kairos I built a React Native farm-operations dashboard at PT Hyoshii Agri Sejahtera, helped develop a Unity physiological simulation as a research assistant, and completed 250 hours of full-stack, cloud and DevOps training at the KADA Bootcamp. I still make games and simulations in Unity on the side.",
   ],
