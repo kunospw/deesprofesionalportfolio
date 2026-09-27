@@ -36,6 +36,7 @@ export const skillGroups: SkillGroup[] = [
       {
         name: "Node.js & Express",
         note: "REST APIs with role-based authentication, including OpenAI API integration.",
+        usedIn: ["Job Hive"],
       },
       {
         name: "Databases",
@@ -56,7 +57,7 @@ export const skillGroups: SkillGroup[] = [
       {
         name: "React",
         note: "Component-driven interfaces with routing and live API data.",
-        usedIn: ["Fleet Management System"],
+        usedIn: ["Fleet Management System", "Job Hive", "E-commerce Website"],
       },
       {
         name: "TypeScript",
@@ -148,7 +149,12 @@ export const skillGroups: SkillGroup[] = [
       {
         name: "Unity",
         note: "Simulations, platformers and narrative games, including a physiological research simulation.",
-        usedIn: ["Research simulation"],
+        usedIn: ["VR Courtroom Game", "Hanoman Adventure", "Research simulation"],
+      },
+      {
+        name: "Roblox & ESP32",
+        note: "Training simulations in Roblox, driven by ESP32 hardware controls.",
+        usedIn: ["START Triage Simulation"],
       },
       {
         name: "Blender & Adobe Suite",

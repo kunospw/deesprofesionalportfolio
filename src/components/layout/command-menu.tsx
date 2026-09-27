@@ -132,7 +132,7 @@ export function CommandMenu() {
             <CommandItem
               key={project.id}
               value={`project ${project.title} ${project.tech.join(" ")}`}
-              onSelect={() => run(() => scrollToSection("projects"))}
+              onSelect={() => run(() => (project.href ? openExternal(project.href) : scrollToSection("projects")))}
             >
               <FolderOpen />
               {project.title}

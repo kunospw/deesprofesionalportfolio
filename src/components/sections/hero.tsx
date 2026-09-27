@@ -35,11 +35,13 @@ export function Hero() {
 
           <Reveal delay={0.05}>
             <p className="font-mono text-base font-medium sm:text-lg">
-              {"// "}
+              {/* Each item stays on one line; the page can only wrap at the separators. */}
+              <span className="text-muted-foreground">{"//"}</span>
               {profile.focus.map((item) => (
-                <span key={item} className="whitespace-nowrap">
-                  {item}
-                  <span className="text-muted-foreground">{" // "}</span>
+                <span key={item}>
+                  {" "}
+                  <span className="whitespace-nowrap">{item}</span>{" "}
+                  <span className="text-muted-foreground">{"//"}</span>
                 </span>
               ))}
             </p>

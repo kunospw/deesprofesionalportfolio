@@ -22,9 +22,11 @@ export function buildAssistantContext() {
     "PROJECTS",
     ...projects.map((p) =>
       [
-        `- ${p.title} (${p.context}): ${p.description}`,
+        `- ${p.title} (${p.context}, ${p.year}): ${p.description}`,
         `Built with ${p.tech.join(", ")}.`,
         p.status === "in-progress" ? "Still in progress." : "",
+        p.href ? `Link: ${p.href}` : "",
+        p.playEmbed ? "Playable in the browser from the Projects section." : "",
       ]
         .filter(Boolean)
         .join(" "),
