@@ -12,7 +12,7 @@ import { profile, siteUrl } from "@/data/profile";
 import { themeScript } from "@/lib/theme-script";
 import { cn } from "@/lib/utils";
 
-const description = `${profile.name} (${profile.nickname}) is a ${profile.role.toLowerCase()} at Kairos Solutions, building .NET, Next.js and Flutter apps on Epicor Kinetic. Based in ${profile.location}.`;
+const description = `${profile.name} (${profile.nickname}) is a ${profile.role.toLowerCase()} and Informatics student building .NET, Next.js and Flutter apps integrated with Epicor Kinetic ERP. Based in ${profile.location}.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

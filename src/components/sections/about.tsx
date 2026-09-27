@@ -18,9 +18,10 @@ const playerStats = [
   { label: "Name", value: profile.name },
   { label: "Alias", value: `${profile.nickname} · ${profile.handle}` },
   { label: "Class", value: profile.role },
-  { label: "Guild", value: "Kairos Solutions" },
+  { label: "Guild", value: "Kairos Business Solutions" },
+  { label: "School", value: "President University · GPA 3.84" },
   { label: "Base", value: profile.location },
-  { label: "Languages", value: "Indonesian, English (TOEIC 865)" },
+  { label: "Languages", value: "Indonesian (native), English (advanced)" },
 ];
 
 export function About() {

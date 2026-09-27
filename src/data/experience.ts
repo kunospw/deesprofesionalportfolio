@@ -14,7 +14,7 @@ export type Experience = {
   organization: string;
   context?: string;
   period: string;
-  type: "Full-time" | "Bootcamp" | "Organizer" | "Project";
+  type: "Internship" | "Bootcamp" | "Organizer" | "Project";
   bullets: string[];
   tags: string[];
   media?: ExperienceMedia;
@@ -23,26 +23,53 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     id: "kairos",
-    role: "Software Developer (Full-Stack)",
-    organization: "Kairos Solutions",
-    context: "Client products built on Epicor Kinetic ERP",
-    period: "May 2026 – Present",
-    type: "Full-time",
+    role: "Software Developer Intern",
+    organization: "Kairos Business Solutions",
+    context: "Web and mobile apps integrated with Epicor Kinetic ERP",
+    period: "Apr 2026 – Present",
+    type: "Internship",
     bullets: [
-      "Build and support around half a dozen client products end to end: .NET 8 APIs, React/Next.js web apps, Flutter mobile apps and Epicor Kinetic configuration (BPMs, BAQs, DMT data loads).",
-      "Took an invoice-delivery platform through production go-live; it delivered 362 invoices in its first week with zero send errors across roughly 90,000 log lines.",
-      "Led resilience work during an ERP outage, adding a circuit breaker and configurable timeouts, and cut the service's Docker build context from 2.8 GB to about 1 MB.",
-      "Became sole developer and owner of a fleet-management product (React planner, Flutter driver app, .NET 8 API with SignalR) and handle iOS and Play Store releases across projects.",
-      "Wrote the team's onboarding guide, development handbook, workflow standards and deployment guides, and ran internal knowledge-sharing sessions.",
+      "Develop and maintain 5 full-stack web and mobile applications (.NET, React/Next.js, Flutter) integrated with Epicor Kinetic ERP.",
+      "Handle deployments, go-lives and production support, including data migration and root-cause analysis; one go-live delivered 362 invoices in its first week with no application errors.",
+      "Sole developer on a fleet-management product: React planner, Flutter driver app and a .NET 8 API with SignalR, through to Play Store releases.",
+      "Gather requirements, run QA and user acceptance testing, and have written 10 technical, deployment and onboarding guides for the team.",
     ],
     tags: [".NET 8", "ASP.NET Core", "Next.js", "React", "Flutter", "Epicor Kinetic", "Docker"],
+  },
+  {
+    id: "hyoshii",
+    role: "Android / Mobile Developer Intern",
+    organization: "PT Hyoshii Agri Sejahtera",
+    context: "Internal farm-operations dashboard",
+    period: "Oct 2025 – Apr 2026",
+    type: "Internship",
+    bullets: [
+      "Developed and maintained the internal mobile dashboard in React Native to support farm operations.",
+      "Integrated real-time API endpoints for pesticide usage, mortality reports, nutrient management and greenhouse metrics.",
+      "Maintained and improved the mobile platform growers use daily.",
+    ],
+    tags: ["React Native", "REST APIs", "Android"],
+  },
+  {
+    id: "research-assistant",
+    role: "Research Assistant Intern",
+    organization: "President University",
+    context: "Physiological simulation research",
+    period: "Sep 2025 – Jan 2026",
+    type: "Internship",
+    bullets: [
+      "Helped develop a Unity-based physiological simulation modelling fatigue and heat stress.",
+      "Worked with CTGAN-generated datasets, CSV ingestion and vital-sign modelling.",
+      "Collaborated with faculty and research partners on deliverables aligned with academic standards.",
+    ],
+    tags: ["Unity", "C#", "Data Modelling", "Research"],
   },
   {
     id: "kada",
     role: "Bootcamp Participant",
     organization: "KADA Bootcamp",
     context: "NIPA Global ICT Portal (GIP)",
-    period: "Jun 2024 – Aug 2024",
+    period: "Jun 2025 – Aug 2025",
     type: "Bootcamp",
     bullets: [
       "Completed 250 hours of intensive training covering web development, backend, cloud services and DevOps, finishing with a capstone project.",
@@ -60,7 +87,7 @@ export const experiences: Experience[] = [
     period: "Feb 2024 – May 2024",
     type: "Organizer",
     bullets: [
-      "Curated the event theme and chose alumni speakers aligned with its goals.",
+      "Curated the event theme and chose two alumni speakers aligned with its goals.",
       "Designed the rundown and managed venue setup and logistics.",
       "The event led to students getting free access to a Google Cloud bootcamp through Digitalent.",
     ],
@@ -70,8 +97,8 @@ export const experiences: Experience[] = [
   {
     id: "webage-liber",
     role: "Web Developer",
-    organization: "CharBage Developer Team",
-    context: "WeBage Liber",
+    organization: "WeBage Liber",
+    context: "Developer Team",
     period: "Sep 2022 – Dec 2022",
     type: "Project",
     bullets: [

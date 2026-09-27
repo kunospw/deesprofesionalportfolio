@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import {
   Copy,
-  ExternalLink,
+  FolderOpen,
   FileDown,
   Mail,
   MessageCircle,
@@ -143,17 +143,11 @@ export function CommandMenu() {
             <CommandItem
               key={project.id}
               value={`project ${project.title} ${project.tech.join(" ")}`}
-              onSelect={() =>
-                run(() =>
-                  project.href ? openExternal(project.href) : scrollToSection("projects"),
-                )
-              }
+              onSelect={() => run(() => scrollToSection("projects"))}
             >
-              <ExternalLink />
+              <FolderOpen />
               {project.title}
-              <CommandShortcut className="tracking-normal capitalize">
-                {project.category}
-              </CommandShortcut>
+              <CommandShortcut className="tracking-normal">{project.context}</CommandShortcut>
             </CommandItem>
           ))}
         </CommandGroup>

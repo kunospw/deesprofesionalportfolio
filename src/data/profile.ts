@@ -8,17 +8,17 @@ export const profile = {
   nickname: "Dee",
   handle: "kunospw",
   wordmark: "dyah.rini",
-  role: "Full-Stack Developer",
+  role: "Software Developer",
   /** Cycled by the typewriter in the hero. */
   roles: [
-    "Full-Stack Developer",
-    "Software Developer at Kairos",
+    "Software Developer",
+    "Software Developer Intern at Kairos",
     ".NET · Next.js · Flutter",
-    "Game Developer on weekends",
+    "Informatics student at President University",
   ],
   tagline: "Blending creativity and logic like a witchcraft spell.",
   intro:
-    "I build production apps end to end, from .NET APIs and Next.js dashboards to Flutter mobile apps and ERP integrations.",
+    "I build web and mobile apps end to end, from .NET APIs and Next.js dashboards to Flutter and React Native apps and Epicor ERP integrations.",
   location: "Bekasi, Indonesia",
   mapsUrl: "https://maps.google.com/?q=Bekasi%2C%20Indonesia",
   email: "dyahrini908@gmail.com",
@@ -28,9 +28,9 @@ export const profile = {
   /** From the back of Dee's ID card. */
   quote: "I am inimitable, I am an original.",
   about: [
-    "I'm Dee, a full-stack developer at Kairos Solutions, based in Bekasi, Indonesia. I build and support client products on top of Epicor Kinetic ERP: ASP.NET Core APIs, React and Next.js web apps, Flutter mobile apps, and the ERP configuration that ties them together.",
-    "I like owning a product end to end. I've taken an invoice-delivery platform through go-live and hardened it for production, and I'm now the sole developer on a fleet-management system, from requirements and QA with the client to Play Store releases.",
-    "Before Kairos I studied Informatics and completed 250 hours of full-stack, cloud and DevOps training at the KADA Bootcamp. I still build pixel-art games in Unity on the side, which is where my eye for detail comes from.",
+    "I'm Dee, an Informatics student at President University and a software developer intern at Kairos Business Solutions, based in Bekasi, Indonesia. I build web and mobile apps integrated with Epicor Kinetic ERP: ASP.NET Core APIs, React and Next.js web apps, and Flutter mobile apps.",
+    "My work covers the whole lifecycle: development, deployments and go-lives, production support, QA with users, and the technical documentation that keeps a team moving. I supported an invoice-delivery application through go-live and I'm the sole developer on a fleet-management system.",
+    "Before Kairos I built a React Native farm-operations dashboard at PT Hyoshii Agri Sejahtera, helped develop a Unity physiological simulation as a research assistant, and completed 250 hours of full-stack, cloud and DevOps training at the KADA Bootcamp. I still make games and simulations in Unity on the side.",
   ],
 } as const;
 
@@ -73,13 +73,13 @@ export const highlights = [
     icon: "code",
     title: "Full-Stack Delivery",
     description:
-      "ASP.NET Core 8 APIs, React and Next.js front-ends, SignalR real-time features and Docker deployments, shipped to production for real clients.",
+      "ASP.NET Core 8 APIs, React and Next.js front-ends, SignalR real-time features and Docker deployments, shipped to production.",
   },
   {
     icon: "mobile",
     title: "Mobile Apps",
     description:
-      "Flutter apps for drivers, outlets and field staff, including iOS builds and code signing and Play Store release management.",
+      "Flutter and React Native apps for operations and field teams, including iOS code signing and Play Store releases.",
   },
   {
     icon: "erp",
@@ -91,6 +91,6 @@ export const highlights = [
     icon: "users",
     title: "Ownership & Team",
     description:
-      "Go-live checklists, runbooks and root-cause write-ups, plus onboarding guides, dev standards and knowledge-sharing sessions for the team.",
+      "Go-lives, production support and root-cause analysis, plus 10 technical, deployment and onboarding guides written for the team.",
   },
 ] as const;

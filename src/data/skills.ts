@@ -21,12 +21,12 @@ export const skillGroups: SkillGroup[] = [
       {
         name: "ASP.NET Core",
         note: ".NET 8 APIs with background sync jobs, retries, circuit breakers and configurable timeouts.",
-        usedIn: ["Invoice Delivery Platform", "Fleet Management System"],
+        usedIn: ["Invoice Delivery Application", "Fleet Management System"],
       },
       {
         name: "C#",
-        note: "Backend services at work, and gameplay scripting in Unity on the side.",
-        usedIn: ["Invoice Delivery Platform", "Hanoman Adventure"],
+        note: "Backend services at work, and simulation and gameplay scripting in Unity.",
+        usedIn: ["Invoice Delivery Application", "Research simulation"],
       },
       {
         name: "SignalR",
@@ -35,8 +35,11 @@ export const skillGroups: SkillGroup[] = [
       },
       {
         name: "Node.js & Express",
-        note: "REST APIs with role-based authentication and MongoDB.",
-        usedIn: ["Job Hive"],
+        note: "REST APIs with role-based authentication, including OpenAI API integration.",
+      },
+      {
+        name: "Databases",
+        note: "MySQL, MongoDB, Firebase and SQLite, plus SQL for ERP queries.",
       },
     ],
   },
@@ -47,18 +50,23 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       {
         name: "Next.js",
-        note: "Admin and operations dashboards for production client apps, and this site.",
-        usedIn: ["Invoice Delivery Platform", "This portfolio"],
+        note: "Admin and operations dashboards for production apps, and this site.",
+        usedIn: ["Invoice Delivery Application", "This portfolio"],
       },
       {
         name: "React",
         note: "Component-driven interfaces with routing and live API data.",
-        usedIn: ["Fleet Management System", "InsightHub", "Job Hive"],
+        usedIn: ["Fleet Management System"],
       },
       {
-        name: "Tailwind CSS",
-        note: "Utility-first styling for fast, consistent, responsive layouts.",
-        usedIn: ["WordIT", "GeekyNerds.io", "This portfolio"],
+        name: "TypeScript",
+        note: "Typed front-ends and APIs, alongside JavaScript.",
+        usedIn: ["This portfolio"],
+      },
+      {
+        name: "Tailwind & Bootstrap",
+        note: "Utility-first and component-based styling for responsive layouts.",
+        usedIn: ["This portfolio", "WeBage Liber"],
       },
     ],
   },
@@ -69,17 +77,17 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       {
         name: "Flutter",
-        note: "Driver, outlet and field-staff apps: clock-in, proof of delivery and work orders.",
-        usedIn: ["Fleet Management System", "Restaurant Operations App", "Time Entry & Proof of Delivery"],
+        note: "Driver and field-staff apps: clock-in, proof of delivery and work orders.",
+        usedIn: ["Fleet Management System"],
       },
       {
-        name: "iOS release",
-        note: "Builds, certificates and code signing, including recovering a broken signing setup.",
-        usedIn: ["Restaurant Operations App", "Time Entry & Proof of Delivery"],
+        name: "React Native",
+        note: "An internal dashboard with real-time farm-operations data, used daily.",
+        usedIn: ["PT Hyoshii Agri Sejahtera"],
       },
       {
-        name: "Play Store release",
-        note: "Release signing and publishing for Android apps.",
+        name: "App releases",
+        note: "iOS builds and code signing, and Play Store release signing and publishing.",
         usedIn: ["Fleet Management System"],
       },
     ],
@@ -91,18 +99,18 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       {
         name: "Epicor Kinetic",
-        note: "The ERP behind every client product I work on at Kairos.",
-        usedIn: ["Invoice Delivery Platform", "Fleet Management System", "Restaurant Operations App"],
+        note: "The ERP behind the apps I build at Kairos.",
+        usedIn: ["Invoice Delivery Application", "Fleet Management System"],
       },
       {
         name: "BPMs & BAQs",
-        note: "Business rules and queries, such as enforcing an invoice delivery method on customers, with test plans.",
-        usedIn: ["Invoice Delivery Platform"],
+        note: "Business rules and queries, such as enforcing an invoice delivery method, with test plans.",
+        usedIn: ["Invoice Delivery Application"],
       },
       {
-        name: "DMT data loads",
-        note: "Loading customer billing and configuration data for go-lives.",
-        usedIn: ["Invoice Delivery Platform"],
+        name: "Data migration",
+        note: "DMT data loads of billing and configuration data for go-lives.",
+        usedIn: ["Invoice Delivery Application"],
       },
     ],
   },
@@ -112,22 +120,23 @@ export const skillGroups: SkillGroup[] = [
     color: "#a3a3a3",
     skills: [
       {
-        name: "Docker",
+        name: "Docker & AWS",
         note: "Containerised deployments; cut one build context from 2.8 GB to about 1 MB.",
-        usedIn: ["Invoice Delivery Platform"],
-      },
-      {
-        name: "Linux servers",
-        note: "Deployments and production support, plus the team's server-access guide.",
+        usedIn: ["Invoice Delivery Application"],
       },
       {
         name: "Git & GitHub",
         note: "Version control and team workflow standards.",
       },
       {
-        name: "Incident response",
-        note: "Root-cause analysis, runbooks and go-live checklists.",
-        usedIn: ["Invoice Delivery Platform", "Restaurant Operations App"],
+        name: "QA & UAT",
+        note: "Requirements gathering, QA and user acceptance testing with users.",
+        usedIn: ["Fleet Management System"],
+      },
+      {
+        name: "Production support",
+        note: "Go-lives, root-cause analysis and technical, deployment and onboarding guides.",
+        usedIn: ["Invoice Delivery Application"],
       },
     ],
   },
@@ -138,13 +147,12 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       {
         name: "Unity",
-        note: "Platformers, narrative games and game jam prototypes.",
-        usedIn: ["Hanoman Adventure", "Blessed Are the Peacemakers", "Raturu: Homefever"],
+        note: "Simulations, platformers and narrative games, including a physiological research simulation.",
+        usedIn: ["Research simulation"],
       },
       {
-        name: "Pixel Art",
-        note: "Sprites, scenes and UI, including in Aseprite.",
-        usedIn: ["Hanoman Adventure", "Blessed Are the Peacemakers"],
+        name: "Blender & Adobe Suite",
+        note: "3D assets, sprites, scenes and UI.",
       },
     ],
   },
