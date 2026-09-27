@@ -16,7 +16,7 @@ function Wordmark() {
   return (
     <>
       <LogoMark className="size-5 text-brand" />
-      <span className="font-pixel text-sm">{profile.wordmark}</span>
+      <span className="font-mono text-sm">{profile.wordmark}</span>
     </>
   );
 }
@@ -28,7 +28,7 @@ export function MobileHeader() {
   const target = useRef<string | null>(null);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b bg-background/80 backdrop-blur-md md:hidden">
+    <header className="fixed inset-x-0 top-0 z-40 border-b bg-background md:hidden">
       <div className="flex h-14 items-center justify-between px-4">
         <a href="#home" className="flex items-center gap-2">
           <Wordmark />
@@ -38,7 +38,7 @@ export function MobileHeader() {
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full"
+            className="rounded-none"
             aria-label="Open command menu"
             onClick={() => setCommandOpen(true)}
           >
@@ -48,7 +48,7 @@ export function MobileHeader() {
 
           <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
             <DialogPrimitive.Trigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full" aria-label="Open menu">
+              <Button variant="ghost" size="icon" className="rounded-none" aria-label="Open menu">
                 <Menu />
               </Button>
             </DialogPrimitive.Trigger>
@@ -70,7 +70,7 @@ export function MobileHeader() {
                     Site navigation
                   </DialogPrimitive.Description>
                   <DialogPrimitive.Close asChild>
-                    <Button variant="ghost" size="icon" className="rounded-full" aria-label="Close menu">
+                    <Button variant="ghost" size="icon" className="rounded-none" aria-label="Close menu">
                       <X />
                     </Button>
                   </DialogPrimitive.Close>
@@ -89,7 +89,7 @@ export function MobileHeader() {
                           }}
                           className="group flex items-baseline gap-4 py-2 text-3xl font-semibold tracking-tight"
                         >
-                          <span className="font-pixel text-xs text-brand">
+                          <span className="font-mono text-xs text-brand">
                             {String(index).padStart(2, "0")}
                           </span>
                           <span className="transition-colors group-hover:text-muted-foreground">

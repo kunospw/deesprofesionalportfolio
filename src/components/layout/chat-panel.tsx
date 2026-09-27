@@ -95,7 +95,7 @@ export function ChatPanel() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 12, scale: 0.98 }}
           transition={{ duration: 0.18 }}
-          className="flex h-[min(70dvh,520px)] w-[min(calc(100vw-2rem),380px)] origin-bottom-right flex-col overflow-hidden rounded-xl border bg-popover text-popover-foreground shadow-2xl"
+          className="flex h-[min(70dvh,520px)] w-[min(calc(100vw-2rem),380px)] origin-bottom-right flex-col overflow-hidden border border-foreground bg-popover text-popover-foreground shadow-2xl"
         >
           <header className="flex items-start justify-between gap-3 border-b px-4 py-3">
             <div>
@@ -110,7 +110,7 @@ export function ChatPanel() {
             <Button
               variant="ghost"
               size="icon-sm"
-              className="-mr-1 rounded-full"
+              className="-mr-1 rounded-none"
               onClick={() => setChatOpen(false)}
               aria-label="Close chat"
             >
@@ -156,7 +156,7 @@ export function ChatPanel() {
                   key={suggestion}
                   type="button"
                   onClick={() => send(suggestion)}
-                  className="rounded-full border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                  className="rounded-none border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
                 >
                   {suggestion}
                 </button>

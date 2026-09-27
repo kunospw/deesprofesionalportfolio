@@ -23,8 +23,8 @@ export function Skills() {
       <SectionHeading
         index="03"
         eyebrow="Skills"
-        title="Skill Tree"
-        description="The stack I use at work and on side projects, laid out like an RPG skill tree. Hover or tap a node to see where I've used it."
+        title="Skills"
+        description="The stack I use, grouped by area. Hover or tap a skill to see where I've used it."
       />
 
       <Reveal>
@@ -40,7 +40,7 @@ export function Skills() {
           <div className="hidden flex-col items-center lg:flex">
             <div className="inline-flex items-center gap-2.5 rounded-lg border bg-card px-4 py-2 shadow-sm">
               <LogoMark className="size-4 text-brand" />
-              <span className="font-pixel text-xs tracking-[0.2em] uppercase">Dee&apos;s toolbox</span>
+              <span className="font-mono text-xs tracking-[0.2em] uppercase">Stack</span>
             </div>
             <span aria-hidden="true" className="h-8 w-px bg-border" />
           </div>
@@ -128,10 +128,10 @@ function SkillReadout({ selection: { group, skill } }: { selection: Selection })
   return (
     <div
       aria-live="polite"
-      className="mt-12 rounded-xl border bg-card/40 p-5 md:p-6"
+      className="mt-12 rounded-xl border bg-card p-5 md:p-6"
       style={{ borderLeft: `3px solid ${group.color}` }}
     >
-      <p className="font-pixel text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
+      <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
         {group.label} <span aria-hidden="true">/</span>{" "}
         <span className="text-foreground">{skill.name}</span>
       </p>

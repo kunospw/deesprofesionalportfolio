@@ -24,7 +24,7 @@ export function TopNav() {
             className="group flex items-center gap-2.5 rounded-md px-2 py-1.5 outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
           >
             <LogoMark className="size-6 text-brand transition-transform duration-300 group-hover:-rotate-12" />
-            <span className="font-pixel text-sm tracking-wide">
+            <span className="font-mono text-sm tracking-wide">
               {profile.wordmark}
             </span>
           </a>

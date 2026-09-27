@@ -6,8 +6,8 @@ Personal portfolio of **Dyah Puspo Rini (Dee)**, web & game developer from Bekas
 
 - **Next.js 16** (App Router) with React 19 and TypeScript
 - **Tailwind CSS v4** and **shadcn/ui** components in `src/components/ui` (Radix primitives, `cmdk` command menu, `sonner` toasts)
-- **Motion** for scroll reveals, the lanyard ID card and layout animations
-- **Geist Sans, Geist Mono and Geist Pixel** from the `geist` package
+- **Motion** for scroll reveals and layout animations
+- **Geist Sans and Geist Mono** from the `geist` package, in a simple brutalist style (square corners, ink borders, hard offset shadows)
 - **EmailJS** for the contact form and **Gemini** for the "Ask about Dee" assistant (server route, key never reaches the browser)
 
 ## Getting started
@@ -32,7 +32,6 @@ Everything on the page is driven by the files in `src/data/`:
 | `certificates.ts` | Certificates and achievements |
 | `skills.ts` | Skill tree branches and the "used in" notes |
 | `services.ts` | Freelance services and work policy; set `fiverrUrl` once a gig is live |
-| `songs.ts` | Music player tracks (audio files in `public/songs/`) |
 
 The chat assistant builds its knowledge from the same files (`src/lib/assistant-context.ts`), so updating the data updates the assistant too.
 

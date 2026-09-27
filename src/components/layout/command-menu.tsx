@@ -8,13 +8,10 @@ import {
   Mail,
   MessageCircle,
   Moon,
-  Pause,
-  Play,
   Sun,
 } from "lucide-react";
 import { toast } from "sonner";
 
-import { useAudio } from "@/components/providers/audio-provider";
 import { useUI } from "@/components/providers/ui-provider";
 import {
   CommandDialog,
@@ -46,7 +43,6 @@ function downloadCv() {
 export function CommandMenu() {
   const { commandOpen, setCommandOpen, setChatOpen } = useUI();
   const { theme, toggleTheme } = useTheme();
-  const audio = useAudio();
   // Actions run after the dialog has closed so focus restoration can't
   // scroll the page back to the trigger.
   const pendingAction = useRef<(() => void) | null>(null);
@@ -122,13 +118,6 @@ export function CommandMenu() {
           <CommandItem value="ask chat assistant ai" onSelect={() => run(() => setChatOpen(true))}>
             <MessageCircle />
             Ask my portfolio assistant
-          </CommandItem>
-          <CommandItem value="music play pause song" onSelect={() => run(audio.toggle)}>
-            {audio.playing ? <Pause /> : <Play />}
-            {audio.playing ? "Pause music" : "Play music"}
-            <CommandShortcut className="max-w-40 truncate tracking-normal">
-              {audio.track.title}
-            </CommandShortcut>
           </CommandItem>
           <CommandItem value="toggle theme light dark mode" onSelect={() => run(toggleTheme)}>
             {theme === "dark" ? <Sun /> : <Moon />}

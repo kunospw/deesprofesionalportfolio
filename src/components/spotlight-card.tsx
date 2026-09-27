@@ -1,8 +1,6 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 
-/** Bordered card with a soft brand-tinted light that follows the cursor. */
+/** Flat bordered card that lifts onto a hard ink shadow on hover. */
 export function SpotlightCard({
   className,
   children,
@@ -10,26 +8,13 @@ export function SpotlightCard({
 }: React.ComponentProps<"div">) {
   return (
     <div
-      onPointerMove={(event) => {
-        const rect = event.currentTarget.getBoundingClientRect();
-        event.currentTarget.style.setProperty("--spot-x", `${event.clientX - rect.left}px`);
-        event.currentTarget.style.setProperty("--spot-y", `${event.clientY - rect.top}px`);
-      }}
       className={cn(
-        "group/spot relative overflow-hidden rounded-xl border bg-card/40 transition-colors duration-300 hover:border-foreground/15",
+        "border border-foreground bg-card transition-[translate,box-shadow] duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal",
         className,
       )}
       {...props}
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover/spot:opacity-100"
-        style={{
-          background:
-            "radial-gradient(420px circle at var(--spot-x) var(--spot-y), color-mix(in oklab, var(--brand) 13%, transparent), transparent 45%)",
-        }}
-      />
-      <div className="relative h-full">{children}</div>
+      {children}
     </div>
   );
 }

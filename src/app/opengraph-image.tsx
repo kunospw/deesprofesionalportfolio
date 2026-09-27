@@ -8,11 +8,12 @@ export const alt = `${profile.name}, ${profile.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const fontDir = join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans");
-const [geistRegular, geistBold, card] = await Promise.all([
-  readFile(join(fontDir, "Geist-Regular.ttf")),
-  readFile(join(fontDir, "Geist-Bold.ttf")),
-  readFile(join(process.cwd(), "src/assets/card-front.png"), "base64"),
+const fontDir = join(process.cwd(), "node_modules/geist/dist/fonts");
+const [geistRegular, geistBlack, geistMono, portrait] = await Promise.all([
+  readFile(join(fontDir, "geist-sans/Geist-Regular.ttf")),
+  readFile(join(fontDir, "geist-sans/Geist-Black.ttf")),
+  readFile(join(fontDir, "geist-mono/GeistMono-Regular.ttf")),
+  readFile(join(process.cwd(), "src/assets/portrait.jpg"), "base64"),
 ]);
 
 export default async function Image() {
@@ -25,38 +26,34 @@ export default async function Image() {
           height: "100%",
           alignItems: "center",
           padding: "0 72px",
-          background: "#0a0a0a",
-          backgroundImage: "radial-gradient(circle at 80% 30%, rgba(140,141,227,0.22), transparent 55%)",
-          color: "#fafafa",
+          background: "#f6f7fb",
+          color: "#1c1f24",
           fontFamily: "Geist",
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", flex: 1, paddingRight: 48 }}>
-          <div style={{ fontSize: 22, color: "#8c8de3", letterSpacing: 5, textTransform: "uppercase" }}>
-            {profile.role}
+          <div style={{ fontFamily: "Geist Mono", fontSize: 24, color: "#585d68" }}>{"{hello, world!}"}</div>
+          <div style={{ display: "flex", flexDirection: "column", fontSize: 104, fontWeight: 900, lineHeight: 0.92, marginTop: 12, letterSpacing: -4 }}>
+            {profile.name.split(" ").map((line) => (
+              <span key={line}>{line}</span>
+            ))}
           </div>
-          <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 1.02, marginTop: 20, letterSpacing: -2 }}>
-            {profile.name}
+          <div style={{ fontFamily: "Geist Mono", fontSize: 26, marginTop: 32 }}>
+            {`// ${profile.focus.join(" // ")} //`}
           </div>
-          <div style={{ fontSize: 28, color: "#a3a3a3", marginTop: 24, lineHeight: 1.35 }}>
-            {profile.tagline}
-          </div>
-          <div style={{ fontSize: 22, color: "#737373", marginTop: 40 }}>{new URL(siteUrl).host}</div>
+          <div style={{ fontFamily: "Geist Mono", fontSize: 20, color: "#585d68", marginTop: 28 }}>{new URL(siteUrl).host}</div>
         </div>
-        <img
-          src={`data:image/png;base64,${card}`}
-          width={504}
-          height={288}
-          alt=""
-          style={{ borderRadius: 18, transform: "rotate(-4deg)", boxShadow: "0 30px 60px rgba(0,0,0,0.5)" }}
-        />
+        <div style={{ display: "flex", border: "3px solid #1c1f24", boxShadow: "12px 12px 0 #1c1f24" }}>
+          <img src={`data:image/jpeg;base64,${portrait}`} width={330} height={465} alt="" style={{ filter: "grayscale(1)" }} />
+        </div>
       </div>
     ),
     {
       ...size,
       fonts: [
         { name: "Geist", data: geistRegular, weight: 400, style: "normal" },
-        { name: "Geist", data: geistBold, weight: 700, style: "normal" },
+        { name: "Geist", data: geistBlack, weight: 900, style: "normal" },
+        { name: "Geist Mono", data: geistMono, weight: 400, style: "normal" },
       ],
     },
   );

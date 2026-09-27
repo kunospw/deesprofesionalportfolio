@@ -64,7 +64,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="relative space-y-5 rounded-xl border bg-card/40 p-6 md:p-8"
+      className="relative space-y-5 border border-foreground bg-card p-6 shadow-brutal md:p-8"
     >
       <div aria-hidden="true" className="absolute top-auto -left-[10000px] size-px overflow-hidden">
         <label>

@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 const sectionIds = sections.map((section) => section.id);
 
-/** Floating icon rail on the left edge, with a pixel marker on the active section. */
+/** Floating icon rail on the left edge, with a square marker on the active section. */
 export function SideRail() {
   const active = useActiveSection(sectionIds);
 
@@ -19,7 +19,7 @@ export function SideRail() {
       aria-label="Sections"
       className="fixed top-1/2 left-5 z-30 hidden -translate-y-1/2 md:block"
     >
-      <ul className="flex animate-in flex-col items-center gap-1 rounded-full border bg-background/70 p-1.5 shadow-sm backdrop-blur-md duration-500 fill-mode-both fade-in-0 slide-in-from-left-4 [animation-delay:300ms]">
+      <ul className="flex animate-in flex-col items-center gap-1 rounded-none border border-foreground bg-background p-1.5 shadow-brutal duration-500 fill-mode-both fade-in-0 slide-in-from-left-4 [animation-delay:300ms]">
         {sections.map(({ id, label, icon: Icon }) => {
           const isActive = active === id;
           return (
@@ -39,15 +39,15 @@ export function SideRail() {
                     aria-label={label}
                     aria-current={isActive ? "true" : undefined}
                     className={cn(
-                      "relative flex size-10 items-center justify-center rounded-full text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50",
-                      isActive && "text-foreground",
+                      "relative flex size-10 items-center justify-center rounded-none text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50",
+                      isActive && "text-background hover:text-background",
                     )}
                   >
                     {isActive ? (
                       <motion.span
                         layoutId="rail-active"
                         aria-hidden="true"
-                        className="absolute inset-0 rounded-full bg-accent"
+                        className="absolute inset-0 rounded-none bg-foreground"
                         transition={{ type: "spring", stiffness: 420, damping: 34 }}
                       />
                     ) : null}

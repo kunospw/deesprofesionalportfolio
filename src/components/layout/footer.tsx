@@ -4,15 +4,15 @@ import { profile, socials } from "@/data/profile";
 
 export function Footer() {
   return (
-    <footer className="border-t px-6 pt-16 pb-28 sm:px-10 md:pr-12 md:pb-10 md:pl-32 lg:pr-20">
+    <footer className="border-t border-foreground px-6 pt-16 pb-28 sm:px-10 md:pr-12 md:pb-10 md:pl-32 lg:pr-20">
       <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4 sm:col-span-2">
           <p className="flex items-center gap-2.5">
             <LogoMark className="size-6 text-brand" />
-            <span className="font-pixel">{profile.wordmark}</span>
+            <span className="font-mono">{profile.wordmark}</span>
           </p>
           <p className="max-w-sm text-sm text-pretty text-muted-foreground">
-            {profile.name} · {profile.role} from {profile.location}. {profile.tagline}
+            {profile.intro}
           </p>
         </div>
 
@@ -48,11 +48,11 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-4 border-t pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-4 border-t border-foreground pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {new Date().getFullYear()} {profile.name}. Built with Next.js and shadcn/ui.
         </p>
-        <p className="font-pixel text-xs tracking-[0.15em] text-brand uppercase">{profile.quote}</p>
+        <p className="font-mono text-xs">{`// ${profile.tagline.toLowerCase()} //`}</p>
       </div>
     </footer>
   );

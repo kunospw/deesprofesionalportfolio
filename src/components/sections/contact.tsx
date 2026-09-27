@@ -37,7 +37,7 @@ export function Contact() {
             <ul className="grid gap-6 sm:grid-cols-2">
               {channels.map(({ label, icon: Icon, links }) => (
                 <li key={label} className="flex items-center gap-4">
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+                  <span className="flex size-11 shrink-0 items-center justify-center border border-foreground bg-foreground text-background">
                     <Icon className="size-5" />
                   </span>
                   <div className="min-w-0">

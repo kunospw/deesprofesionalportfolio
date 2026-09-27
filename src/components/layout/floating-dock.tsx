@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowUp, FileDown, MessageCircle } from "lucide-react";
 
 import { ChatPanel } from "@/components/layout/chat-panel";
-import { MusicPlayer } from "@/components/layout/music-player";
 import { useUI } from "@/components/providers/ui-provider";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -21,12 +20,12 @@ function DockTooltip({ label, children }: { label: string; children: React.React
   );
 }
 
-/** Bottom-right quick actions: music, chat, CV and back-to-top. */
+/** Bottom-right quick actions: chat, CV and back-to-top. */
 export function FloatingDock() {
   const { chatOpen, setChatOpen } = useUI();
   const pastHero = useScrolledPast(480);
   const showBackToTop = useScrolledPast(600);
-  // On phones the dock would cover the ID card, so it waits below the hero.
+  // On phones the dock would cover the hero, so it waits below it.
   const idle = !pastHero && !chatOpen;
 
   return (
@@ -39,10 +38,8 @@ export function FloatingDock() {
       <div
         role="toolbar"
         aria-label="Quick actions"
-        className="flex animate-in items-center gap-0.5 rounded-full border bg-background/80 p-1 shadow-lg backdrop-blur-md duration-500 fill-mode-both fade-in-0 slide-in-from-bottom-4 [animation-delay:500ms]"
+        className="flex animate-in items-center gap-0.5 rounded-none border border-foreground bg-background p-1 shadow-brutal duration-500 fill-mode-both fade-in-0 slide-in-from-bottom-4 [animation-delay:500ms]"
       >
-        <MusicPlayer />
-
         <DockTooltip label="Ask my assistant">
           <Button
             variant="ghost"
@@ -50,14 +47,14 @@ export function FloatingDock() {
             aria-label="Ask my portfolio assistant"
             aria-expanded={chatOpen}
             onClick={() => setChatOpen((open) => !open)}
-            className={cn("rounded-full", chatOpen && "bg-accent text-foreground")}
+            className={cn("rounded-none", chatOpen && "bg-foreground text-background")}
           >
             <MessageCircle />
           </Button>
         </DockTooltip>
 
         <DockTooltip label="Download CV">
-          <Button variant="ghost" size="icon" className="rounded-full" asChild>
+          <Button variant="ghost" size="icon" className="rounded-none" asChild>
             <a href={profile.cv} download={profile.cvFileName} aria-label="Download CV">
               <FileDown />
             </a>
@@ -78,7 +75,7 @@ export function FloatingDock() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full"
+                  className="rounded-none"
                   aria-label="Back to top"
                   onClick={() => scrollToSection("home")}
                 >

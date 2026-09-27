@@ -12,7 +12,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative px-6 py-20 sm:px-10 md:py-28 md:pr-12 md:pl-32 lg:pr-20",
+        "relative border-t border-foreground px-6 py-20 sm:px-10 md:py-28 md:pr-12 md:pl-32 lg:pr-20",
         className,
       )}
       {...props}
@@ -37,12 +37,11 @@ export function SectionHeading({
 }) {
   return (
     <Reveal className={cn("mb-12 max-w-2xl space-y-4 md:mb-16", className)}>
-      <p className="flex items-center gap-3 font-pixel text-xs tracking-[0.2em] text-brand uppercase">
-        <span>{index}</span>
-        <span aria-hidden="true" className="h-px w-8 bg-brand/40" />
-        <span>{eyebrow}</span>
+      <p className="font-mono text-sm text-muted-foreground">
+        <span className="bg-foreground px-1.5 py-0.5 text-background">{index}</span>
+        <span className="ml-2">{`// ${eyebrow.toLowerCase()}`}</span>
       </p>
-      <h2 className="text-4xl font-bold tracking-tight text-balance sm:text-5xl">
+      <h2 className="text-5xl font-extrabold tracking-[-0.04em] text-balance sm:text-6xl">
         {title}
       </h2>
       {description ? (

@@ -19,7 +19,7 @@ export function Projects() {
         {projects.map((project, index) => (
           <li key={project.id}>
             <Reveal delay={index * 0.05} className="h-full">
-              <ProjectCard project={project} />
+              <ProjectCard project={project} index={index} />
             </Reveal>
           </li>
         ))}
@@ -28,14 +28,16 @@ export function Projects() {
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border bg-card/40 transition-colors duration-300 hover:border-foreground/20">
-      {/* No screenshots for private client work: a pattern tile borrowed from the ID card's stripes. */}
-      <div className="relative flex aspect-[21/9] flex-col items-center justify-center gap-3 overflow-hidden border-b bg-[#1e1f4b] text-[#8c8de3]">
-        <span aria-hidden="true" className="absolute inset-0 opacity-20 bg-stripes" />
-        <Briefcase className="relative size-9" />
-        <span className="relative font-pixel text-xs tracking-[0.2em] uppercase">Client project</span>
+    <article className="flex h-full flex-col border border-foreground bg-card transition-[translate,box-shadow] duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-brutal">
+      {/* No screenshots for private client work: an index plate with pencil-style hatching. */}
+      <div className="relative flex aspect-[21/9] items-end justify-between overflow-hidden border-b border-foreground bg-foreground p-5 text-background">
+        <span aria-hidden="true" className="absolute inset-0 opacity-15 bg-stripes" />
+        <span className="relative text-7xl leading-none font-extrabold tracking-[-0.05em]">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="relative font-mono text-xs">{"// private client work"}</span>
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-5">
@@ -47,7 +49,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.status === "in-progress" ? <Badge variant="brand">In progress</Badge> : null}
         </div>
 
-        <h3 className="text-lg font-semibold tracking-tight">{project.title}</h3>
+        <h3 className="text-xl font-bold tracking-tight">{project.title}</h3>
         <p className="text-sm text-pretty text-muted-foreground">{project.description}</p>
 
         <ul className="mt-auto flex flex-wrap gap-1.5 pt-2" aria-label="Built with">

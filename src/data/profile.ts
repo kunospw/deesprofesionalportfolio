@@ -9,14 +9,9 @@ export const profile = {
   handle: "kunospw",
   wordmark: "dyah.rini",
   role: "Full-Stack Developer",
-  /** Cycled by the typewriter in the hero. */
-  roles: [
-    "Full-Stack Developer",
-    "Build · Integrate · Deploy · Support",
-    ".NET · Next.js · Flutter",
-    "Software Developer Intern at Kairos",
-  ],
-  tagline: "Blending creativity and logic like a witchcraft spell.",
+  /** Shown as the mono strapline under the name in the hero. */
+  focus: ["Full-Stack Developer", ".NET · Next.js · Flutter", "Epicor Kinetic ERP"],
+  tagline: "Build · Integrate · Deploy · Support",
   intro:
     "Full-stack developer with broad end-to-end experience building, integrating, deploying and supporting production applications.",
   location: "Bekasi, Indonesia",
@@ -25,12 +20,10 @@ export const profile = {
   phone: "+62 812 9859 0798",
   cv: "/Dyah_Puspo_RIni_CV.pdf",
   cvFileName: "Dyah_Puspo_Rini_CV.pdf",
-  /** From the back of Dee's ID card. */
-  quote: "I am inimitable, I am an original.",
   about: [
-    "I'm Dee, a full-stack developer with broad end-to-end experience building, integrating, deploying and supporting production applications. I'm currently a software developer intern at Kairos Business Solutions and an Informatics student at President University, based in Bekasi, Indonesia. I build ASP.NET Core APIs, React and Next.js web apps and Flutter mobile apps integrated with Epicor Kinetic ERP.",
-    "My work covers the whole lifecycle: development, deployments and go-lives, production support, QA with users, and the technical documentation that keeps a team moving. I supported an invoice-delivery application through go-live and I'm the sole developer on a fleet-management system.",
-    "Before Kairos I built a React Native farm-operations dashboard at PT Hyoshii Agri Sejahtera, helped develop a Unity physiological simulation as a research assistant, and completed 250 hours of full-stack, cloud and DevOps training at the KADA Bootcamp. I still make games and simulations in Unity on the side.",
+    "I'm a full-stack developer who builds, integrates, deploys and supports production applications end to end. Day to day, that means .NET, React/Next.js and Flutter apps connected to Epicor Kinetic ERP, as a software developer intern at Kairos Business Solutions.",
+    "My work covers the whole lifecycle: gathering requirements, development, deployments and go-lives, production support and root-cause analysis, QA with users, and the technical documentation that keeps a team moving. I supported an invoice-delivery application through go-live and I'm the sole developer on a fleet-management system.",
+    "Before Kairos I built a React Native farm-operations dashboard at PT Hyoshii Agri Sejahtera and helped develop a Unity physiological simulation as a research assistant. I have a background in game development with Unity, completed 250 hours of full-stack, cloud and DevOps training at the KADA Bootcamp, and I'm studying Computing at President University.",
   ],
 } as const;
 
